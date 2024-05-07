@@ -1,0 +1,2 @@
+C:\Users\P2716217\Source\Repos\Skeleton\Testing1\obj\Debug\Muzza.csproj.AssemblyReference.cache
+C:\Users\P2716217\Source\Repos\Skeleton\Testing1\obj\Debug\Muzza.csproj.CoreCompileInputs.cache
