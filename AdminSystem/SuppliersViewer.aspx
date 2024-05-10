@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="SupplierConfirmDelete.aspx.cs" Inherits="_1_ConfirmDelete" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="SuppliersViewer.aspx.cs" Inherits="_1Viewer" %>
 
 <!DOCTYPE html>
 
@@ -7,7 +7,6 @@
     <title></title>
 </head>
 <body>
-    This is the Order Confirm Delete Page
     <form id="form1" runat="server">
         <div>
         </div>

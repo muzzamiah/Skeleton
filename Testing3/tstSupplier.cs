@@ -8,11 +8,12 @@ namespace Testing3
     public class tstSupplier
     {
         [TestMethod]
-        public void InstanceOKc()
-        //Create an instance of the class we want to create
-        clsSupplier ASupplier = new clsSupplier();
-        //Test to see that it exists 
-        Assert.IsNotNull(ASupplier);
-        
+        public void InstanceOK()
+        {
+            //Create an instance of the class I want to create 
+            clsSupplier  ASupplier = new clsSupplier();
+            //Testing to see if it exists
+            Assert.IsNotNull(ASupplier);
         }
     }
+}
