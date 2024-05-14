@@ -7,6 +7,7 @@ namespace Testing3
     [TestClass]
     public class tstSupplier
     {
+        /***Instance of the Class Test ***/
         [TestMethod]
         public void InstanceOK()
         {
@@ -17,6 +18,7 @@ namespace Testing3
 
         }
 
+        /***OK Property Tests ***/
         [TestMethod]
         public void ActivePropertyOK()
         {
@@ -28,6 +30,8 @@ namespace Testing3
             ASupplier.Active = TestData;
             //Testing to see that both these values are the same
             Assert.AreEqual(ASupplier.Active, TestData);
+
+        /***Contract Start Date Property Test ***/
         }
         [TestMethod]
         public void ContractStartDatePropertyOK()
@@ -42,6 +46,7 @@ namespace Testing3
             Assert.AreEqual(ASupplier.ContractStartDate, TestData);
         }
 
+        /***Contract End Date Property Test ***/
         [TestMethod]
         public void ContractEndDatePropertyOK()
         {
@@ -53,6 +58,8 @@ namespace Testing3
             ASupplier.ContractEndDate = TestData;
             //Testing to see that both these values are the same
             Assert.AreEqual(ASupplier.ContractEndDate, TestData);
+
+        /***Supplier ID Property Test ***/
         }
         [TestMethod]
         public void SupplierIdPropertyOK()
@@ -66,6 +73,8 @@ namespace Testing3
             //test to see that the two values are the same
             Assert.AreEqual(ASupplier.SupplierId, TestData);
         }
+
+        /***Supplier Name Property Test ***/
         [TestMethod]
         public void SupplierNamePropertyOK()
         {
@@ -79,6 +88,7 @@ namespace Testing3
             Assert.AreEqual(ASupplier.SupplierName, TestData);
         }
 
+        /***Contact Phone Property Test ***/
         [TestMethod]
         public void ContactPhonePropertyOK()
         {
@@ -92,6 +102,7 @@ namespace Testing3
             Assert.AreEqual(ASupplier.ContactPhone, TestData);
         }
 
+        /***Contact Email Property Tests ***/
         [TestMethod]
         public void ContactEmailPropertyOK()
         {
