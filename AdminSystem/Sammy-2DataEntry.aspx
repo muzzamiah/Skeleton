@@ -16,11 +16,11 @@
         <div>
             <asp:Label ID="lblCustomerId" runat="server" style="z-index: 1; left: 28px; top: 162px; position: absolute" Text="Customer ID"></asp:Label>
             <asp:TextBox ID="txtCustomerId" runat="server" style="z-index: 1; left: 155px; top: 162px; position: absolute"></asp:TextBox>
+            <asp:TextBox ID="txtCustomerFirstName" runat="server" style="z-index: 1; left: 157px; top: 198px; position: absolute"></asp:TextBox>
         </div>
         <asp:Label ID="lblCustomerFirstName" runat="server" style="z-index: 1; left: 37px; top: 199px; position: absolute" Text="Firstname"></asp:Label>
         <asp:CheckBox ID="chkAgeCheck" runat="server" style="z-index: 1; left: 124px; top: 438px; position: absolute" Text="Over 18?" />
         <p style="height: 529px; margin-top: 0px">
-            <asp:TextBox ID="TextBox1" runat="server" OnTextChanged="TextBox1_TextChanged" style="z-index: 1; left: 156px; top: 197px; position: absolute"></asp:TextBox>
             <asp:Label ID="lblCustomerLastName" runat="server" style="z-index: 1; left: 38px; top: 237px; position: absolute" Text="Lastname"></asp:Label>
             <asp:Label ID="lblCustomerDOB" runat="server" style="z-index: 1; left: 33px; top: 279px; position: absolute" Text="Date Of Birth"></asp:Label>
             <asp:Label ID="lblCustomerEmail" runat="server" style="z-index: 1; left: 49px; top: 318px; position: absolute" Text="Email"></asp:Label>
@@ -32,6 +32,8 @@
             <asp:TextBox ID="txtCustomerPhone" runat="server" style="z-index: 1; left: 156px; top: 357px; position: absolute"></asp:TextBox>
             <asp:TextBox ID="txtDateAdded" runat="server" style="z-index: 1; left: 155px; top: 395px; position: absolute"></asp:TextBox>
         </p>
+        <p style="height: 529px; margin-top: 0px">
+            &nbsp;</p>
         <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 53px; top: 482px; position: absolute"></asp:Label>
         <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" style="z-index: 1; left: 82px; top: 515px; position: absolute" Text="OK" />
         <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 175px; top: 514px; position: absolute" Text="Cancel" />
