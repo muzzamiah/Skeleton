@@ -43,6 +43,20 @@ namespace Testing2
         }
 
         [TestMethod]
+        public void CustomerIdPropertyOK()
+        {
+            //create an instance of the class we want to create
+            clsCustomer AnCustomer = new clsCustomer();
+            //create some test data to assign to the property
+            Int32 TestData = 1;
+            //assign the data to the property
+            AnCustomer.CustomerId = TestData;
+            //test to see that the two values are the same
+            Assert.AreEqual(AnCustomer.CustomerId, TestData);
+        }
+
+
+        [TestMethod]
         public void CustomerFirstNamePropertyOK()
         {
             // Create an instance of the class we want to create
@@ -107,17 +121,46 @@ namespace Testing2
         }
 
         [TestMethod]
-        public void PreferredColourPropertyOK()
+        public void FindMethodOK()
         {
-            // Create an instance of the class we want to create
+            //create an instance of the class we want to create
             clsCustomer AnCustomer = new clsCustomer();
-            // Create some test data for the property
-            string TestData = "Blue";
-            // Assign the data to the property
-            AnCustomer.PreferredColour = TestData;
-            // Test to see that the two values are the same
-            Assert.AreEqual(AnCustomer.PreferredColour, TestData);
+            //create a Boolean variable to store the results of the validation
+            Boolean Found = false;
+            //create some test data to use with the method
+            Int32 CustomerId = 21;
+            //invoke the method
+            Found = AnCustomer.Find(CustomerId);
+            //test to see if the result is true
+            Assert.IsTrue(Found);
         }
+
+        [TestMethod]
+        public void TestCustomerIdFound()
+        {
+            //create an instance of the class we want to create
+            clsCustomer AnCustomer = new clsCustomer();
+            //create a Boolean variable to store the result of the search
+            Boolean Found = false;
+            //create a Boolean variable t record if the data is OK
+            Boolean OK = true;
+            //Create some test data to use with the method
+            Int32 CustomerId = 21;
+            //invoke the method
+            Found = AnCustomer.Find(CustomerId);
+            //check the address id
+            if (AnCustomer.CustomerId != 21)
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+
+        }
+
+ 
+        }
+
     }
-}
+
     
