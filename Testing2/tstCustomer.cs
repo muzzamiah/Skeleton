@@ -158,8 +158,112 @@ namespace Testing2
 
         }
 
- 
+        [TestMethod]
+        public void TestAgeCheckFound()
+        {
+            clsCustomer AnCustomer = new clsCustomer();
+            bool Found = false;
+            bool OK = true;
+            int CustomerId = 21;
+            Found = AnCustomer.Find(CustomerId);
+            if (AnCustomer.AgeCheck != true)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
         }
+
+        [TestMethod]
+        public void TestDateAddedFound()
+        {
+            clsCustomer AnCustomer = new clsCustomer();
+            bool Found = false;
+            bool OK = true;
+            int CustomerId = 21;
+            Found = AnCustomer.Find(CustomerId);
+            if (AnCustomer.DateAdded != DateTime.Now.Date)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestCustomerFirstNameFound()
+        {
+            clsCustomer AnCustomer = new clsCustomer();
+            bool Found = false;
+            bool OK = true;
+            int CustomerId = 21;
+            Found = AnCustomer.Find(CustomerId);
+            if (AnCustomer.CustomerFirstName != "John")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestCustomerLastNameFound()
+        {
+            clsCustomer AnCustomer = new clsCustomer();
+            bool Found = false;
+            bool OK = true;
+            int CustomerId = 21;
+            Found = AnCustomer.Find(CustomerId);
+            if (AnCustomer.CustomerLastName != "Doe")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestCustomerDOBFound()
+        {
+            clsCustomer AnCustomer = new clsCustomer();
+            bool Found = false;
+            bool OK = true;
+            int CustomerId = 21;
+            Found = AnCustomer.Find(CustomerId);
+            if (AnCustomer.CustomerDOB != new DateTime(1990, 5, 13))
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestCustomerEmailFound()
+        {
+            clsCustomer AnCustomer = new clsCustomer();
+            bool Found = false;
+            bool OK = true;
+            int CustomerId = 21;
+            Found = AnCustomer.Find(CustomerId);
+            if (AnCustomer.CustomerEmail != "john.doe@example.com")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestCustomerPhoneFound()
+        {
+            clsCustomer AnCustomer = new clsCustomer();
+            bool Found = false;
+            bool OK = true;
+            int CustomerId = 21;
+            Found = AnCustomer.Find(CustomerId);
+            if (AnCustomer.CustomerPhone != "123-456-7890")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+    }
 
     }
 

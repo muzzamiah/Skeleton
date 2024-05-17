@@ -12,10 +12,19 @@ namespace ClassLibrary
         public string CustomerEmail { get; set; }
         public string CustomerPhone { get; set; }
 
+
+
         public bool Find(int customerId)
         {
             //set the private data members to the test data value
             mCustomerId = 21;
+            AgeCheck = true;
+            DateAdded = DateTime.Now.Date;
+            CustomerFirstName = "John";
+            CustomerLastName = "Doe";
+            CustomerDOB = new DateTime(1990, 5, 13);
+            CustomerEmail = "john.doe@example.com";
+            CustomerPhone = "123-456-7890";
             //always return true
             return true;
         }
