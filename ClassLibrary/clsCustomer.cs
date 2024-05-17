@@ -29,6 +29,11 @@ namespace ClassLibrary
             return true;
         }
 
+        public string Valid(object customerFirstName, object customerLastName, object customerDOB, object customerPhone, object customerEmail, object dateAdded)
+        {
+            return "";
+        }
+
         //private data member for the customer id property
         private Int32 mCustomerId;
 
