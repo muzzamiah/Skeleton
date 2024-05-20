@@ -57,16 +57,19 @@ namespace Testing1
         }
 
         [TestMethod]
-        public void StaffPostCode()
+        public void GenderPropertyOK()
         {
-            //create an instance of the class we want to create
-            StaffName AName = new StaffName();
-            //create some test data to assign to the property
-            string TestData = "LE2 7EF ";
-            //assign the data to the property
-            AName.PostCode = TestData;
-            //test to see that the two values are the same
-            Assert.AreEqual(AName.PostCode, TestData);
+            // Create an instance of the class we want to create
+            StaffName AName= new StaffName();
+
+            // Create some test data to assign to the property
+            bool TestData = true; // For example, true could represent Male
+
+            // Assign the data to the property
+            AName.Gender = TestData;
+
+            // Test to see that the two values are the same
+            Assert.AreEqual(TestData, AName.Gender);
         }
 
         [TestMethod]
