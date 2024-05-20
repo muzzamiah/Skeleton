@@ -8,8 +8,15 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
+        <div style="height: 66px">
+            <asp:Label ID="lblProductNameId" runat="server" style="z-index: 1; top: 21px; position: absolute; left: 12px" Text="Product Name"></asp:Label>
+            <asp:TextBox ID="txtProductId" runat="server" style="z-index: 1; left: 129px; top: 19px; position: absolute; bottom: 635px"></asp:TextBox>
+            <asp:Label ID="lblProductAvailableId" runat="server" style="z-index: 1; left: 17px; top: 60px; position: absolute" Text="Product Availibility"></asp:Label>
+            <asp:CheckBox ID="chkYes" runat="server" style="z-index: 1; left: 143px; top: 61px; position: absolute" Text="Yes" />
+            <asp:CheckBox ID="chkNo" runat="server" style="z-index: 1; left: 257px; top: 63px; position: absolute" Text="No" />
         </div>
+        <p>
+            &nbsp;</p>
     </form>
 </body>
 </html>
