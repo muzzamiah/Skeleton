@@ -1,6 +1,7 @@
 ﻿
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using ClassLibrary;
 
 namespace Testing1
 {
@@ -119,6 +120,7 @@ namespace Testing1
 
         }
 
+
         [TestMethod]
         public void FindMethodOK()
         {
@@ -132,3 +134,4 @@ namespace Testing1
     }
 
 }
+
