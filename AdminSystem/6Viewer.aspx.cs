@@ -9,6 +9,8 @@ public partial class _1Viewer : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        StaffName AName = new StaffName();
+        AName = Session["AName"] as StaffName;
+        Response.Write*AName.StaffID);
     }
 }

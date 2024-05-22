@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using ClassLibrary;
 
 public partial class _1_DataEntry : System.Web.UI.Page
 {
@@ -30,6 +31,18 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
     protected void btnOK_Click(object sender, EventArgs e)
     {
+        StaffName AName = new StaffName();
+        AName.StaffID = txtStaffID.Text;
+        Session["AName"] = AName;
+        Response.Redirect("1Viewer.aspx");
+    }
+
+    protected void txtStaffID_TextChanged(object sender, EventArgs e)
+    {
 
     }
+}
+
+internal class StaffName
+{
 }
