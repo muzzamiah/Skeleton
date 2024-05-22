@@ -129,6 +129,21 @@ namespace Testing1
             Assert.IsTrue(Found);   
         }
 
+        [TestMethod]
+        public void TestAddressIdFound()
+        {
+            StaffName AName = new StaffName();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 AddressID = 21;
+            Found = AName.Find(AddressID);
+            if (AName.DateAdded != Convert.ToDateTime("23/12/2023"))
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
     }
 
 }

@@ -40,10 +40,12 @@
         <p>
             &nbsp;</p>
         <p>
-            &nbsp;</p>
-        <p>
-            <asp:Label ID="Label1" runat="server" style="z-index: 1; left: 9px; top: 382px; position: absolute; width: 53px; height: 23px" Text="Label"></asp:Label>
+            <asp:Button ID="btnOK" runat="server" OnClick="Button2_Click" style="z-index: 1; left: 85px; top: 408px; position: absolute; width: 60px" Text="OK" />
         </p>
+        <p>
+            <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 9px; top: 409px; position: absolute; width: 53px; height: 23px" Text="Error"></asp:Label>
+        </p>
+        <asp:Button ID="btnCancel" runat="server" OnClick="btnCancel_Click" style="z-index: 1; left: 193px; top: 405px; position: absolute; height: 29px; width: 61px" Text="Cancel" />
     </form>
 </body>
 </html>
