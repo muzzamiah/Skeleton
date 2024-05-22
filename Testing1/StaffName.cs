@@ -11,5 +11,11 @@ namespace Testing1
         public string Role { get; internal set; }
         public DateTime DateAdded { get; internal set; }
         public bool Attendance { get; internal set; }
+        public bool Gender { get; internal set; }
+
+        internal bool Find(int staffID)
+        {
+           return true;
+        }
     }
 }
