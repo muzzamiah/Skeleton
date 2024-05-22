@@ -119,6 +119,16 @@ namespace Testing1
 
         }
 
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            StaffName AName = new StaffName();
+            Boolean Found = false;
+            Int32 StaffID = 21;
+            Found = AName.Find(StaffID);
+            Assert.IsTrue(Found);   
+        }
+
     }
 
 }
