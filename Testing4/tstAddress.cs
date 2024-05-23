@@ -13,12 +13,12 @@ namespace Testing4
         {
             //create an instance of the class want to create 
             clsAddress AnAddress = new clsAddress();
-                //test to see that it exists
-                Assert.IsNotNull(AnAddress);
+            //test to see that it exists
+            Assert.IsNotNull(AnAddress);
         }
 
         [TestMethod]
-        public void ActivePropertyOK()
+        public void ProductAvailibity()
         //Create an instance of the class we want to create
         {
             clsAddress AnAddress = new clsAddress();
@@ -30,7 +30,7 @@ namespace Testing4
             Assert.AreEqual(AnAddress.Active, TestData);
         }
         [TestMethod]
-        public void OrderDatePropertyOK()
+        public void OrderDate()
         {
             //create an instance of the class we want to create
             clsAddress AnAddress = new clsAddress();
@@ -42,7 +42,7 @@ namespace Testing4
             Assert.AreEqual(AnAddress.OrderDate, TestData);
         }
         [TestMethod]
-        public void PrdouctNamePropertyOK()
+        public void ProductName()
         {
             //create an instance of the class we want to create
             clsAddress AnAddress = new clsAddress();
@@ -55,7 +55,7 @@ namespace Testing4
         }
 
         [TestMethod]
-        public void QuantityPropertyOK()
+        public void Quantity()
         {
             //create an instance of the class we want to create
             clsAddress AnAddress = new clsAddress();
@@ -67,7 +67,7 @@ namespace Testing4
             Assert.AreEqual(AnAddress.Quantity, TestData);
         }
         [TestMethod]
-        public void OrderNoPropertyOK()
+        public void OrderNo()
         {
             //create an instance of the class we want to create
             clsAddress AnAddress = new clsAddress();
@@ -79,7 +79,7 @@ namespace Testing4
             Assert.AreEqual(AnAddress.OrderNo, TestData);
         }
         [TestMethod]
-        public void PricePropertyOK()
+        public void Price()
         {
             //create an instance of the class we want to create
             clsAddress AnAddress = new clsAddress();
@@ -91,7 +91,7 @@ namespace Testing4
             Assert.AreEqual(AnAddress.Price, TestData);
         }
         [TestMethod]
-        public void NamePropertyOK()
+        public void OrderAddress()
         {
             //create an instance of the class we want to create
             clsAddress AnAddress = new clsAddress();
@@ -102,6 +102,55 @@ namespace Testing4
             //test to see that the two values are the same
             Assert.AreEqual(AnAddress.Name, TestData);
         }
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            // create a instance of the class we want to create
+            clsAddress AnAddress = new clsAddress();
+            //create a Boolean variable to store the results of the validation
+            Boolean Found = false;
+            //create some test data to use with the method 
+            Int32 Address = 21;
+            //invoke the method
+            Found = AnAddress.Find(AddressId);
+            //test to see if the result is true
+            Assert.IsTrue(Found);
 
-    }
-}
+            public bool Find(int AddressId)
+            {
+                //Always return true
+                return true;
+
+            }
+        }
+                [TestMethod]
+                public void TestAddressIdFound()
+                {
+                    //create an instance of the class we want to create
+                    clsAddress AnAddress = new clsAddress();
+                    //create a Boolean variable to store the result of the search
+                    Boolean Found = false;
+                    //create a Boolean variable to record if the data is OK (assume it is)
+                    Boolean OK = true;
+                    //create some test data to use with the method
+                    Int32 AddressId = 21;
+                    //invoke the method
+                    Found = AnAddress.Find(AddressId);
+                    //check the address id property
+                    if (AnAddress.AddressId != 21)
+                    {
+                        OK = false;
+                    }
+                    //test to see that the result is correct
+                    Assert.IsTrue(OK);
+                }
+              
+               
+
+
+            }
+        }
+    
+
+    
+
