@@ -1,7 +1,7 @@
 ﻿
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using ClassLibrary;
+
 
 namespace Testing1
 {
@@ -97,9 +97,9 @@ namespace Testing1
             //create some test data to assign to the property
             DateTime TestData = DateTime.Today.AddYears(-5);
             //assign the data to the property
-            AName.DateAdded = TestData;
+            AName.DatePlaced = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(AName.DateAdded, TestData);
+            Assert.AreEqual(AName.DatePlaced, TestData);
         }
 
         [TestMethod]
@@ -139,12 +139,86 @@ namespace Testing1
             Boolean OK = true;
             Int32 AddressID = 21;
             Found = AName.Find(AddressID);
-            if (AName.DateAdded != Convert.ToDateTime("23/12/2023"))
+            if (AName.DatePlaced != Convert.ToDateTime("23/12/2023"))
             {
                 OK = false;
             }
             Assert.IsTrue(OK);
         }
+
+        [TestMethod]
+        public void TestHouseNoFound()
+        {
+            StaffName AName = new StaffName();
+            Boolean Found = false;  
+            Boolean OK = true;
+            Int32 StaffID = 21;
+            Found = AName.Find(StaffID);
+            if (AName.StaffID != "123")
+            {
+                OK = false;
+            }
+            Assert.IsFalse(OK);
+        }
+
+        [TestMethod]
+        public void TestPostCodeFound()
+        {
+            //create an instance of the class we want to create
+            StaffName AName = new StaffName();
+            //create a boolean variable to store the result of the search
+            Boolean Found = false;
+            //create a boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 AddressId = 21;
+            //invoke the method
+            Found = AName.Find(AddressId);
+            //check the post code property
+            if (AName.PostCode != "XXX XXX")
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsFalse(OK);
+        }
+
+        [TestMethod]
+        public void TestDOB()
+        {
+            //create an instance of the class we want to create
+            StaffName AName = new StaffName();
+            //create a Boolean variable to store the result of the search
+            Boolean Found = false;
+            //create Boolean variable to record if the data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 AddressId = 21;
+            //invoke the method
+            Found = AName.Find(AddressId);
+            //check the date added property
+            if (AName.DatePlaced != Convert.ToDateTime("23/12/2022"))
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsFalse(OK);
+        }
+
+        public void TestStaffName()
+        {
+            StaffName AName = new StaffName();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 NameStaff = 21;
+            Found = AName.Find(NameStaff);
+            if (AName.StaffID != "123")
+            {
+                OK = false;
+            }
+            Assert.IsFalse(OK);
+        }
+
 
     }
 

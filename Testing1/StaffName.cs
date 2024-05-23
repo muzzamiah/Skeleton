@@ -26,23 +26,27 @@ namespace Testing1
             }
         }
 
-        private DateTime mDateAdded;
-        public DateTime DateAdded
+        
+        private DateTime mDatePlaced;
+
+        public DateTime DatePlaced
         {
             get 
             {
-                return mDateAdded;
+                return mDatePlaced;
             }
             set
             {
-                mDateAdded = value;
+                mDatePlaced = value;
             }
         }
+
+        public string StaffID { get; internal set; }
 
         public bool Find(int AddressID)
         {
             mAddressID = 21;
-            mDateAdded = Convert.ToDateTime("23/12/2023");
+            mDatePlaced = Convert.ToDateTime("23/12/2023");
             return true;
         }
 
