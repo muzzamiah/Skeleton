@@ -33,19 +33,32 @@ namespace ClassLibrary
         {
             //create a string variable to store the error
             String Error = "";
-            //if the CustomerFirstName is blank
+            //create a temporary variable to store date values
+            DateTime DateTemp;
+            //if the HouseNo is blank
             if (customerFirstName.Length == 0)
             {
                 //record the error
-                Error = Error + "The firstname may not be blank : ";
+                Error = Error + "The house no may not be blank : ";
             }
-            
-            //if the firstname is greater than 6 charecters
+            //if the house no is greater than 6 characters
             if (customerFirstName.Length > 6)
             {
                 //record the error
-                Error = Error + "The customer firstname must be less than 6 charecters : ";
-
+                Error = Error + "The house no must be less than 6 characters : ";
+            }
+            //copy the dateAdded value to the DateTemp variable
+            DateTemp = Convert.ToDateTime(dateAdded);
+            if (DateTemp < DateTime.Now.Date)
+            {
+                //record the error
+                Error = Error + "The date cannot be in the past : ";
+            }
+            //check to see if the date is greater than today's date
+            if (DateTemp > DateTime.Now.Date)
+            {
+                //record the error
+                Error = Error + "The date cannot be in the future : ";
             }
             //return any error messages
             return Error;
