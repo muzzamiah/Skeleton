@@ -26,3 +26,5 @@ C:\Users\P2716217\Source\Repos\muzzamiah\Skeleton\Testing1\bin\Debug\Microsoft.V
 C:\Users\P2716217\Source\Repos\muzzamiah\Skeleton\Testing1\obj\Debug\Muzza.csproj.Up2Date
 C:\Users\P2716217\Source\Repos\muzzamiah\Skeleton\Testing1\obj\Debug\Testing1.dll
 C:\Users\P2716217\Source\Repos\muzzamiah\Skeleton\Testing1\obj\Debug\Testing1.pdb
+C:\Users\p2765485\Source\Repos\muzzamiah\Skeleton\Testing1\obj\Debug\Muzza.csproj.AssemblyReference.cache
+C:\Users\p2765485\Source\Repos\muzzamiah\Skeleton\Testing1\obj\Debug\Muzza.csproj.CoreCompileInputs.cache

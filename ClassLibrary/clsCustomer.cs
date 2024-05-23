@@ -29,9 +29,26 @@ namespace ClassLibrary
             return true;
         }
 
-        public string Valid(object customerFirstName, object customerLastName, object customerDOB, object customerPhone, object customerEmail, object dateAdded)
+        public string Valid(string customerFirstName, string customerLastName, string customerDOB, string customerPhone, string customerEmail, string dateAdded)
         {
-            return "";
+            //create a string variable to store the error
+            String Error = "";
+            //if the CustomerFirstName is blank
+            if (customerFirstName.Length == 0)
+            {
+                //record the error
+                Error = Error + "The firstname may not be blank : ";
+            }
+            
+            //if the firstname is greater than 6 charecters
+            if (customerFirstName.Length > 6)
+            {
+                //record the error
+                Error = Error + "The customer firstname must be less than 6 charecters : ";
+
+            }
+            //return any error messages
+            return Error;
         }
 
         //private data member for the customer id property
