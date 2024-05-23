@@ -1,6 +1,8 @@
 ﻿
+using ClassLibrary;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Core;
 
 
 namespace Testing1
@@ -132,13 +134,13 @@ namespace Testing1
         }
 
         [TestMethod]
-        public void TestAddressIdFound()
+        public void StaffAddress()
         {
             StaffName AName = new StaffName();
             Boolean Found = false;
             Boolean OK = true;
             Int32 AddressID = 21;
-            Found = AName.Find(AddressID);
+            Found = AName.Find(AddressId);
             if (AName.DatePlaced != Convert.ToDateTime("23/12/2023"))
             {
                 OK = false;
@@ -147,7 +149,7 @@ namespace Testing1
         }
 
         [TestMethod]
-        public void TestHouseNoFound()
+        public void StaffID()
         {
             StaffName AName = new StaffName();
             Boolean Found = false;  
@@ -162,7 +164,7 @@ namespace Testing1
         }
 
         [TestMethod]
-        public void TestPostCodeFound()
+        public void PostCode()
         {
             //create an instance of the class we want to create
             StaffName AName = new StaffName();
@@ -212,7 +214,7 @@ namespace Testing1
             Boolean OK = true;
             Int32 NameStaff = 21;
             Found = AName.Find(NameStaff);
-            if (AName.StaffID != "123")
+            if (AName.NameStaff != "123")
             {
                 OK = false;
             }
