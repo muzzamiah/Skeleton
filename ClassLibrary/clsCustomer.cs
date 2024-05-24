@@ -36,49 +36,49 @@ namespace ClassLibrary
             String Error = "";
             //create a temporary variable to store date values
             DateTime DateTemp;
-
-            //if the CustomerFirstName is blank
+            //if the customer firstname is blank
             if (customerFirstName.Length == 0)
             {
                 //record the error
-                Error = Error + "The first name may not be blank: ";
+                Error = Error + "The firstname no may not be blank : ";
             }
-            //if the CustomerFirstName is greater than 50 characters
-            if (customerFirstName.Length > 50)
+            //if the customer firstname is greater than 6 characters
+            if (customerFirstName.Length > 6)
             {
                 //record the error
-                Error = Error + "The first name must be less than 50 characters: ";
+                Error = Error + "The firstname no must be less than 6 characters : ";
             }
 
-            // Date validation
+            DateTime DateComp = DateTime.Now.Date;
+
             try
-            {
-                //copy the dateAdded value to the DateTemp variable
-                DateTemp = Convert.ToDateTime(dateAdded);
+                {
+            //copy the dateAdded value to the DateTemp variable
+            DateTemp = Convert.ToDateTime(dateAdded);
 
-                //check to see if the date is in the past
-                if (DateTemp < DateTime.Now.Date)
+                if (DateTemp < DateComp) //compare dateAdded with Date
                 {
                     //record the error
-                    Error = Error + "The date cannot be in the past: ";
+                    Error = Error + "The date cannot be in the past : ";
                 }
-                //check to see if the date is in the future
-                if (DateTemp > DateTime.Now.Date)
+                //check to see if the date is greater than todays date
+                if (DateTemp > DateComp)
                 {
                     //record the error
-                    Error = Error + "The date cannot be in the future: ";
+                    Error = Error + "The date cannot be in the future : ";
+                        }
                 }
-            }
             catch
             {
                 //record the error
-                Error = Error + "The date was not a valid date: ";
+                Error = Error + "The date ws not a valid date : ";
             }
 
-            //return any error messages
+            
             return Error;
         }
-        
+
+
 
         //private data member for the customer id property
         private Int32 mCustomerId;
@@ -99,3 +99,4 @@ namespace ClassLibrary
         }
     }
 }
+

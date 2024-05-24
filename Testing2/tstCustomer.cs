@@ -400,8 +400,8 @@ namespace Testing2
             //string variable to store any error message
             String Error = "";
             //create some test data to pass to the method
-            string CustomerFirstName = "aaaaaa"; //this should trigger an error
-            //invoke the method
+            string CustomerFirstName = "aaaaaaa"; //this should trigger an error
+                                                  //invoke the method
             Error = anCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerDOB, CustomerPhone, CustomerEmail, DateAdded);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
@@ -424,6 +424,7 @@ namespace Testing2
             Assert.AreNotEqual(Error, "");
         }
 
+
         [TestMethod]
         public void DateAddedExtremeMin()
         {
@@ -433,9 +434,9 @@ namespace Testing2
             String Error = "";
             //create a variable to store the test date data
             DateTime TestDate;
-            //set the date to todays date
+            //set the date totodays date
             TestDate = DateTime.Now.Date;
-            //change the date to whatever the date is less 100 years old
+            //change the date to whatever the date is less 100 years
             TestDate = TestDate.AddYears(-100);
             //convert the date variable to a string variable
             string DateAdded = TestDate.ToString();
@@ -461,7 +462,7 @@ namespace Testing2
             //convert the date variable to a string variable
             string DateAdded = TestDate.ToString();
             //invoke the method
-            Error = AnCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerDOB, CustomerPhone, CustomerEmail, DateAdded); ;
+            Error = AnCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerDOB, CustomerPhone, CustomerEmail, DateAdded);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
