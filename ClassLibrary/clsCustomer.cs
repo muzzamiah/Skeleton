@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.Eventing.Reader;
 
 namespace ClassLibrary
 {
@@ -16,17 +17,36 @@ namespace ClassLibrary
 
         public bool Find(int customerId)
         {
-            //set the private data members to the test data value
-            mCustomerId = 21;
-            AgeCheck = true;
-            DateAdded = DateTime.Now.Date;
-            CustomerFirstName = "John";
-            CustomerLastName = "Doe";
-            CustomerDOB = new DateTime(1990, 5, 13);
-            CustomerEmail = "john.doe@example.com";
-            CustomerPhone = "123-456-7890";
-            //always return true
-            return true;
+            //create an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+            //add the parameter for the customer id to search for
+            DB.AddParameter("@CustomerId", customerId);
+            //execute the stored procedure
+            DB.Execute("sproc_tblCustomer_FilterByCustomerId");
+            //if one record is found (there should either be one or zero
+            if (DB.Count == 1)
+
+            {
+                mCustomerId = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerId"]);
+                AgeCheck = Convert.ToBoolean(DB.DataTable.Rows[0]["AgeCheck"]);
+                DateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["DateAdded"]);
+                CustomerFirstName = Convert.ToString(DB.DataTable.Rows[0]["CustomerFirstName"]);
+                CustomerLastName = Convert.ToString(DB.DataTable.Rows[0]["CustomerLastName"]);
+                CustomerDOB = Convert.ToDateTime(DB.DataTable.Rows[0]["CustomerDOB"]);
+                CustomerEmail = Convert.ToString(DB.DataTable.Rows[0]["CustomerEmail"]);
+                CustomerPhone = Convert.ToString(DB.DataTable.Rows[0]["CustomerPhone"]);
+                //return that everything worked OK
+                return true;
+                //if no record was found
+            }
+            else
+            {
+
+                //return false indicating there is a problem
+                return false;
+
+            }
+            
         }
 
         public string Valid(string customerFirstName, string customerLastName, string customerDOB, string customerPhone, string customerEmail, string dateAdded)
