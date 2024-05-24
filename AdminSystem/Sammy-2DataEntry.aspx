@@ -20,7 +20,7 @@
         </div>
         <asp:Label ID="lblCustomerFirstName" runat="server" style="z-index: 1; left: 12px; top: 194px; position: absolute" Text="Firstname" width="79px"></asp:Label>
         <asp:CheckBox ID="chkAgeCheck" runat="server" style="z-index: 1; left: 145px; top: 419px; position: absolute" Text="Over 18?" />
-        <p style="height: 529px; margin-top: 0px">
+        <p style="height: 425px; margin-top: 0px">
             <asp:Label ID="lblCustomerLastName" runat="server" style="z-index: 1; left: 12px; top: 225px; position: absolute" Text="Lastname" width="79px"></asp:Label>
             <asp:Label ID="lblCustomerDOB" runat="server" style="z-index: 1; left: 12px; top: 259px; position: absolute" Text="Date Of Birth" width="79px"></asp:Label>
             <asp:Label ID="lblCustomerEmail" runat="server" style="z-index: 1; left: 12px; top: 313px; position: absolute" Text="Email" width="79px"></asp:Label>
@@ -31,6 +31,7 @@
             <asp:TextBox ID="txtCustomerEmail" runat="server" style="z-index: 1; left: 150px; top: 311px; position: absolute"></asp:TextBox>
             <asp:TextBox ID="txtDateAdded" runat="server" style="z-index: 1; left: 150px; top: 381px; position: absolute"></asp:TextBox>
             <asp:TextBox ID="txtCustomerPhone" runat="server" style="z-index: 1; left: 150px; top: 348px; position: absolute"></asp:TextBox>
+            <asp:Button ID="btnFind" runat="server" Height="39px" OnClick="btnFind_Click" Text="Find" Width="54px" />
         </p>
         <p style="height: 529px; margin-top: 0px">
             &nbsp;</p>
