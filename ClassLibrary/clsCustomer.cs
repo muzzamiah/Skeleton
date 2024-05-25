@@ -94,7 +94,19 @@ namespace ClassLibrary
                 Error = Error + "The date ws not a valid date : ";
             }
 
-            
+            //is the customer lastname blank
+            if (customerLastName.Length == 0)
+            {
+                //record the error
+                Error = Error + "The lastname may not be blank : ";
+            }
+            //if the post code is too long
+            if (customerLastName.Length > 9)
+            {
+                //record the error
+                Error = Error + "The lastname must be less than 9 characters : ";
+            }
+
             return Error;
         }
 

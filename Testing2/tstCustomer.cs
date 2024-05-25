@@ -541,8 +541,115 @@ namespace Testing2
             Assert.AreNotEqual(Error, "");
         }
 
+        [TestMethod]
+        public void CustomerLastNameMinLessOne()
+        {
+            //create an instance of the class we want to create
+            clsCustomer AnCustomer = new clsCustomer();
+            //string variable to store any error message
+            String Error = "";
+            //this should fail
+            string CustomerLastName = "";
+            //invoke the method
+            Error = AnCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerDOB, CustomerPhone, CustomerEmail, DateAdded);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
         }
+
+        [TestMethod]
+        public void CustomerLastNameMin()
+        {
+            //create an instance of the class we want to create
+            clsCustomer AnCustomer = new clsCustomer();
+            //string variable to store any error message
+            String Error = "";
+            //this should pass
+            string CustomerLastName = "a";
+            //invoke the method
+            Error = AnCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerDOB, CustomerPhone, CustomerEmail, DateAdded);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void CustomerLastNameMinPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsCustomer AnCustomer = new clsCustomer();
+            //string variable to store any error message
+            String Error = "";
+            //this should pass
+            string CustomerLastName = "aa";
+            //invoke the method
+            Error = AnCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerDOB, CustomerPhone, CustomerEmail, DateAdded);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void CustomerLastNameMaxLessOne()
+        {
+            //create an instance of the class we want to create
+            clsCustomer AnCustomer = new clsCustomer();
+            //string variable to store any error message
+            String Error = "";
+            //this should pass
+            string CustomerLastName = "aaaaaaaa";
+            //invoke the method
+            Error = AnCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerDOB, CustomerPhone, CustomerEmail, DateAdded);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void CustomerLastNameMax()
+        {
+            //create an instance of the class we want to create
+            clsCustomer AnCustomer = new clsCustomer();
+            //string variable to store any error message
+            String Error = "";
+            //this should pass
+            string CustomerLastName = "aaaaaaaaa";
+            //invoke the method
+            Error = AnCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerDOB, CustomerPhone, CustomerEmail, DateAdded);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void CustomerLastNameMaxPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsCustomer AnCustomer = new clsCustomer();
+            //string variable to store any error message
+            String Error = "";
+            //this should fail
+            string CustomerLastName = "aaaaaaaaaa";
+            //invoke the method
+            Error = AnCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerDOB, CustomerPhone, CustomerEmail, DateAdded);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void CustomerLastNameMid()
+        {
+            //create an instance of the class we want to create
+            clsCustomer AnCustomer = new clsCustomer();
+            //string variable to store any error message
+            String Error = "";
+            //this should pass
+            string CustomerLastName = "aaaa";
+            //invoke the method
+            Error = AnCustomer.Valid(CustomerFirstName, CustomerLastName, CustomerDOB, CustomerPhone, CustomerEmail, DateAdded);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+
+
+
+
     }
+
+}
 
 
 
