@@ -11,6 +11,7 @@ namespace ClassLibrary
         public int Quantity { get; set; }
         public int OrderNo { get; set; }
         public decimal Price { get; set; }
+
         public string OrderAddress { get; set; }
 
         public bool Find(int addressId)
@@ -54,5 +55,6 @@ namespace ClassLibrary
                 mDateAdded = value;
             }
         }
+
     }
     
