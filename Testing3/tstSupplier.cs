@@ -222,6 +222,73 @@ namespace Testing3
             Assert.IsTrue(OK);
         }
 
+        [TestMethod]
+        public void TestContractStartDateFound()
+        {
+            //create an instance of the class we want to create
+            clsSupplier ASupplier = new clsSupplier();
+            //create a Boolean variable to store the result of the search
+            Boolean Found = false;
+            //create Boolean variable to record if the data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 SupplierId = 21;
+            //invoke the method
+            Found = ASupplier.Find(SupplierId);
+            //check the date added property
+            if (ASupplier.ContractStartDate != Convert.ToDateTime("23/12/2022"))
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestContractEndDateFound()
+        {
+            //create an instance of the class we want to create
+            clsSupplier ASupplier = new clsSupplier();
+            //create a Boolean variable to store the result of the search
+            Boolean Found = false;
+            //create Boolean variable to record if the data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 SupplierId = 21;
+            //invoke the method
+            Found = ASupplier.Find(SupplierId);
+            //check the date added property
+            if (ASupplier.ContractEndDate != Convert.ToDateTime("23/12/2023"))
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
+
+        [TestMethod]
+        public void TestIsActiveFound()
+        {
+            //create an instance of the class we want to create
+            clsSupplier ASupplier = new clsSupplier();
+            //create a Boolean variable to store the result of the search
+            Boolean Found = false;
+            //create Boolean variable to record if the data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 SupplierId = 21;
+            //invoke the method
+            Found = ASupplier.Find(SupplierId);
+            //check the active property
+            if (ASupplier.IsActive != true)
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
 
 
 

@@ -30,3 +30,5 @@ C:\Users\p2765485\Source\Repos\muzzamiah\Skeleton\Testing1\obj\Debug\Muzza.cspro
 C:\Users\p2765485\Source\Repos\muzzamiah\Skeleton\Testing1\obj\Debug\Muzza.csproj.CoreCompileInputs.cache
 H:\Documents\Practical 8 Finished\Testing1\obj\Debug\Muzza.csproj.AssemblyReference.cache
 H:\Documents\Practical 8 Finished\Testing1\obj\Debug\Muzza.csproj.CoreCompileInputs.cache
+H:\Documents\Practical 9 Finished\Testing1\obj\Debug\Muzza.csproj.AssemblyReference.cache
+H:\Documents\Practical 9 Finished\Testing1\obj\Debug\Muzza.csproj.CoreCompileInputs.cache
