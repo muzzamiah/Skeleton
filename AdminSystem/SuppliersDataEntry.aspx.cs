@@ -20,10 +20,25 @@ public partial class _1_DataEntry : System.Web.UI.Page
         clsSupplier ASupplier = new clsSupplier();
         //Cpturing the Supplier Name
         ASupplier.SupplierName = txtSupplierName.Text;
+        //Capturing the Supplier ID
+        ASupplier.SupplierId = Convert.ToInt32(txtSupplierId.Text);
+        //Capturing the Contact Phone Number
+        ASupplier.ContactPhone = txtContactPhoneNumber.Text;
+        //Capturing the Contact Email Address
+        ASupplier.ContactEmail = txtContactEmailAddress.Text;
+        //Capturing the Contract Start Date
+        ASupplier.ContractStartDate = Convert.ToDateTime(txtContractStartDate.Text);
+        //Capturing the Contract End Date
+        ASupplier.ContractEndDate = Convert.ToDateTime(txtContractEndDate.Text);
+        //Capturing if the Contract is Active
+        ASupplier.Active = chkActive.Checked;
         //Store the supplier in the session object
         Session["ASupplier"] = ASupplier;
         //Navigate to the view page
         Response.Redirect("SuppliersViewer.aspx");
+        
+        
+
 
     }
 
