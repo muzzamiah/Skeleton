@@ -1,9 +1,8 @@
-﻿using ClassLibrary;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Core;
-namespace ClassLibrary
-{
+
+namespace ClassLibrary { }
+
     public class StaffName
     {
         //private data member for the address id property
@@ -23,6 +22,28 @@ namespace ClassLibrary
             }
         }
 
+        //private data member for the active property
+        private Boolean mActive;
+        //active attendance
+        public bool Active
+        {
+            get
+            {
+                //this line of code sends data out of the property
+                return mActive;
+            }
+            set
+            {
+                //this line of code allows data into the property
+                mActive = value;
+            }
+        }
+
+        public bool AgeCheck
+        {
+            get; set;
+        }
+
 
         //private data member for the town property
         private string mNameStaff;
@@ -38,6 +59,40 @@ namespace ClassLibrary
             {
                 //this line of code allows data into the property
                 mNameStaff = value;
+            }
+        }
+
+        //private data member for the town property
+        private string mStreet;
+        //town public property
+        public string Street
+        {
+            get
+            {
+                //this line of code sends data out of the property
+                return mStreet;
+            }
+            set
+            {
+                //this line of code allows data into the property
+                mStreet = value;
+            }
+        }
+
+        //private data member for the town property
+        private string mRole;
+        //town public property
+        public string Role
+        {
+            get
+            {
+                //this line of code sends data out of the property
+                return mRole;
+            }
+            set
+            {
+                //this line of code allows data into the property
+                mRole = value;
             }
         }
         //private data member for the post code property
@@ -59,7 +114,8 @@ namespace ClassLibrary
 
        
         //private data member for the date added property
-        private DateTime mDateAdded;
+        private DateTime mDatePlaced;
+
         //date added public property
         public DateTime DatePlaced
         {
@@ -92,40 +148,56 @@ namespace ClassLibrary
             }
         }
 
-        [TestMethod]
-        public void StaffName()
+        //private data member for the active property
+        private Boolean mAttendance;
+        
+
+        //active public property
+        public bool Attendance
         {
-            //create an instance of the class we want to create
-            StaffName AName = new StaffName();
-            //create a boolean variable to store the result of the search
-            Boolean Found = false;
-            //create a Boolean variable to record if data is OK (assume it is)
-            Boolean OK = true;
-            //create some test data to use with the method
-            Int32 NameStaff = 21;
-            //invoke the method
-            Found = AName.Find(NameStaff);
-            //check the town property
-            if (AName.NameStaff != "Test Name")
+            get
             {
-                OK = false;
+                //this line of code sends data out of the property
+                return mAttendance;
             }
-            //test to see that the result is correct
-            Assert.IsTrue(OK);
+            set
+            {
+                //this line of code allows data into the property
+                mAttendance = value;
+            }
+
         }
 
+        public DateTime DOB { get; internal set; }
+        public bool Gender { get; internal set; }
+
         /****** FIND METHOD ******/
-        public bool Find(int AddressId)
+        public bool Find(int StaffId)
         {
-            //set the private data members to the test data value
-            mAddressId = 21;
-            mStaffID = "123";
-            mNameStaff = "Test Street";
-            mPostCode = "XXX XXX";
-            mDatePlaced = Convert.ToDateTime("23/12/2022");
-            mActive = true;
-            //always return true
-            return true;
+
+            StaffDataConnection DB = new StaffDataConnection();
+
+            DB.AddParameter("@StaffId", StaffId);
+            DB.Execute("sproc_tblStaff_FilteredByStaffId");
+
+            if (DB.Count == 1)
+            {
+                //set the private data members to the test data value
+                mAddressId = Convert.ToInt32(DB.DataTable.Row[0]["AddressId"]);
+                mStaffID = Convert.ToInt32(DB.DataTable.Row[0]["StaffId"]);
+                mNameStaff = Convert.ToString(DB.DataTable.Row[0]["FirstName"]);
+                mNameStaff = Convert.ToString(DB.DataTable.Row[0]["LastName"]);
+                mPostCode = Convert.ToInt32(DB.DataTable.Row[0]["PostCode"]);
+                mDatePlaced = Convert.ToDateTime(DB.DataTable.Row[0]["DatePlaced"]);
+                mRole = Convert.ToString(DB.DataTable.Row[0]["Staff Role"]);
+                mAttendance = Convert.ToBoolean(DB.DataTable.Rows[0]["True"]);
+                //always return true
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

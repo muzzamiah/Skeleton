@@ -2,7 +2,8 @@
 using ClassLibrary;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Core;
+
+
 
 
 namespace Testing1
@@ -19,16 +20,16 @@ namespace Testing1
             Assert.IsNotNull(AName);
         }
         [TestMethod]
-        public void StaffID()
+        public void StaffId()
         {
             //create an instance of the class we want to create
             StaffName AName = new StaffName();
             //create some test data to assign to the property
             Int32 TestData = 1;
             //assign the data to the property
-            AName.StaffId = TestData;
+            AName.StaffID = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(AName.StaffId, TestData);
+            Assert.AreEqual(AName.StaffID, TestData);
         }
 
         [TestMethod]
@@ -45,6 +46,19 @@ namespace Testing1
 
             // Test to see that the two values are the same
             Assert.AreEqual(TestData, AName.DOB);
+        }
+
+        [TestMethod]
+        public void AgeCheckPropertyOK()
+        {
+            //create an instance of the class we want to create
+            StaffName AName = new ClassLibrary.StaffName();
+            //create some test data to the property
+            Boolean TestData = true;
+            //assign the data to the property
+            AName.AgeCheck = TestData;
+            //test to see that the two values are the same
+            Assert.AreEqual(AName.AgeCheck, TestData);
         }
         [TestMethod]
         public void StaffStreet()
@@ -140,7 +154,7 @@ namespace Testing1
             Boolean Found = false;
             Boolean OK = true;
             Int32 AddressID = 21;
-            Found = AName.Find(AddressId);
+            Found = AName.Find(AddressID);
             if (AName.DatePlaced != Convert.ToDateTime("23/12/2023"))
             {
                 OK = false;
@@ -156,7 +170,7 @@ namespace Testing1
             Boolean OK = true;
             Int32 StaffID = 21;
             Found = AName.Find(StaffID);
-            if (AName.StaffID != "123")
+            if (AName.StaffID != 123)
             {
                 OK = false;
             }
