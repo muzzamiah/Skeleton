@@ -36,7 +36,7 @@ namespace ClassLibrary
                 CustomerDOB = Convert.ToDateTime(DB.DataTable.Rows[0]["CustomerDOB"]);
                 CustomerEmail = Convert.ToString(DB.DataTable.Rows[0]["CustomerEmail"]);
                 CustomerPhone = Convert.ToString(DB.DataTable.Rows[0]["CustomerPhone"]);
-                //return that everything worked OK
+                ////return that everything worked OK
                 return true;
                 //if no record was found
             }
