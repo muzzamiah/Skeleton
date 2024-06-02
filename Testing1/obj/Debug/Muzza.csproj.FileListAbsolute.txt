@@ -32,3 +32,5 @@ H:\Documents\Practical 8 Finished\Testing1\obj\Debug\Muzza.csproj.AssemblyRefere
 H:\Documents\Practical 8 Finished\Testing1\obj\Debug\Muzza.csproj.CoreCompileInputs.cache
 H:\Documents\Practical 9 Finished\Testing1\obj\Debug\Muzza.csproj.AssemblyReference.cache
 H:\Documents\Practical 9 Finished\Testing1\obj\Debug\Muzza.csproj.CoreCompileInputs.cache
+C:\Users\P2716217\source\repos\muzzamiah\Skeleton\Testing1\bin\Debug\ClassLibrary.dll
+C:\Users\P2716217\source\repos\muzzamiah\Skeleton\Testing1\bin\Debug\ClassLibrary.pdb
