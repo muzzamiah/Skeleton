@@ -29,7 +29,7 @@
         <asp:TextBox ID="txtSupplierName" runat="server" height="22px" style="z-index: 1; left: 354px; top: 266px; position: absolute" width="128px"></asp:TextBox>
         <asp:TextBox ID="txtContactPhoneNumber" runat="server" height="22px" style="z-index: 1; left: 354px; top: 465px; position: absolute" width="128px"></asp:TextBox>
         <asp:TextBox ID="txtContactEmailAddress" runat="server" height="22px" style="z-index: 1; left: 354px; top: 526px; position: absolute" width="128px" OnTextChanged="TextBox3_TextChanged"></asp:TextBox>
-        <asp:CheckBox ID="chkActive" runat="server" style="z-index: 1; left: 291px; top: 636px; position: absolute; height: 1px;" Text="Active" />
+        <asp:CheckBox ID="chkActive" runat="server" style="z-index: 1; left: 291px; top: 636px; position: absolute; height: 33px; width: 152px;" Text="Active" />
         <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 30px; top: 656px; position: absolute" Text="[lblError]"></asp:Label>
         <p>
             &nbsp;</p>

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Isaaq-4Viewer.aspx.cs" Inherits="_1Viewer" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Isaaq-4Viewer - Copy.aspx.cs" Inherits="_1Viewer" %>
 
 <!DOCTYPE html>
 
