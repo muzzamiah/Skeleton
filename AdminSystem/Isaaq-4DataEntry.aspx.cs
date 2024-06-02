@@ -26,4 +26,9 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //Navigate to the view page
         Response.Redirect("AddressBookViewer.aspx");
     }
+
+    protected void Calendar1_SelectionChanged(object sender, EventArgs e)
+    {
+
+    }
 }

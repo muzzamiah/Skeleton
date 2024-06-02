@@ -28,10 +28,10 @@
             <asp:TextBox ID="txtQuantityId" runat="server" style="z-index: 1; top: 207px; position: absolute; width: 124px; left: 275px" height="22px"></asp:TextBox>
             <asp:Label ID="lblQuantityId" runat="server" style="z-index: 1; left: 15px; top: 208px; position: absolute; width: 89px" Text="Quantity" height="19px"></asp:Label>
         </p>
-        <asp:Label ID="lblProductNoId" runat="server" style="z-index: 1; left: 19px; top: 102px; position: absolute" Text="Product Number" height="19px" width="89px"></asp:Label>
+        <asp:Button ID="Button2" runat="server" Text="Button" />
         <asp:TextBox ID="txtProductNoId" runat="server" style="z-index: 1; left: 275px; top: 97px; position: absolute; width: 124px;" height="22px"></asp:TextBox>
         <asp:Label ID="lblDateOfOrderId" runat="server" style="z-index: 1; left: 10px; top: 252px; position: absolute" Text="Date Of Order" height="19px" width="89px"></asp:Label>
-        <asp:Calendar ID="Calendar1" runat="server" style="z-index: 1; left: 7px; top: 301px; position: absolute; height: 188px; width: 259px"></asp:Calendar>
+        <asp:Button ID="Button1" runat="server" Text="Button" />
         <asp:Button ID="btmConfirm" runat="server" OnClick="btmConfirm_Click" style="z-index: 1; left: 5px; top: 502px; position: absolute" Text="Confirm" />
         <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 97px; top: 502px; position: absolute" Text="Cancel" />
     </form>
