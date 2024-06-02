@@ -138,17 +138,27 @@ namespace ClassLibrary
         /****** FIND METHOD ******/
         public bool Find(int StaffId)
         {
-            //set the private data members to the test data value
-            mStaffId = 21;
-            mHouseNo = "123";
-            mStreet = "Test Street";
-            mTown = "Test Town";
-            mPostCode = "XXX XXX";
-            mCountyCode = 1;
-            mDateAdded = Convert.ToDateTime("23/12/2022");
-            mActive = true;
-            //always return true
-            return true;
+            clsStaffConnection DB = new clsStaffConnection();
+            DB.AddParameter("@StaffId", StaffId);
+            DB.Execute("sproc_tblStaff_FilteredByStaffId");
+            if (DB.Count == 1)
+            {
+                //set the private data members to the test data value
+                mStaffId = Convert.ToInt32(DB.DataTable.Rows[0]["StaffId"]);
+                mHouseNo = Convert.ToInt32(DB.DataTable.Rows[0]["HouseNo"]);
+                mStreet = Convert.ToString(DB.DataTable.Rows[0]["Street"]);
+                mTown = Convert.ToString(DB.DataTable.Rows[0]["Town"]);
+                mPostCode = Convert.ToString(DB.DataTable.Rows[0]["PostCode"]);
+                mCountyCode = Convert.ToInt32(DB.DataTable.Rows[0]["CountyCode"]);
+                mDateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["PostCode"]);
+                mActive = Convert.ToBoolean(DB.DataTable.Rows[0]["Active"]);
+                //always return true
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

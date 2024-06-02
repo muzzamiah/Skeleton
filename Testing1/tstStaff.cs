@@ -293,9 +293,40 @@ namespace Testing1
             //test to see that the result is correct
             Assert.IsTrue(OK);
         }
+
+        [TestMethod]
+        public void TestStaffIdFound()
+
+        {
+            clsStaff AStaff = new clsStaff();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 StaffId = 6;
+            Found = AStaff.Find(StaffId);
+            if (AStaff.StaffId != 6)
+            {
+                OK = false;
+            }
+        }
+
+        [TestMethod]
+        public void TestStreetFoundID()
+
+        {
+            clsStaff AStaff = new clsStaff();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 StaffId = 6;
+            Found = AStaff.Find(StaffId);
+            if (AStaff.Street != "Eewrewr rwerewr")
+            {
+                OK = false;
+            }
+
+            Assert.IsFalse(OK);
+        }
     }
 }
-
 
 
 
