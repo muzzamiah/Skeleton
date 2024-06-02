@@ -1,7 +1,7 @@
 ﻿
-using ClassLibrary;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+
 
 
 
@@ -77,7 +77,7 @@ namespace Testing1
         public void GenderPropertyOK()
         {
             // Create an instance of the class we want to create
-            StaffName AName= new StaffName();
+            StaffName AName = new StaffName();
 
             // Create some test data to assign to the property
             bool TestData = true; // For example, true could represent Male
@@ -144,7 +144,7 @@ namespace Testing1
             Boolean Found = false;
             Int32 StaffID = 21;
             Found = AName.Find(StaffID);
-            Assert.IsTrue(Found);   
+            Assert.IsTrue(Found);
         }
 
         [TestMethod]
@@ -166,7 +166,7 @@ namespace Testing1
         public void StaffID()
         {
             StaffName AName = new StaffName();
-            Boolean Found = false;  
+            Boolean Found = false;
             Boolean OK = true;
             Int32 StaffID = 21;
             Found = AName.Find(StaffID);
