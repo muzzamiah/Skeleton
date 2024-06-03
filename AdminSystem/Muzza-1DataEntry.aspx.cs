@@ -12,4 +12,25 @@ public partial class _1_DataEntry : System.Web.UI.Page
     {
 
     }
+
+    protected void btnFind_Click(object sender, EventArgs e)
+    {
+        clsStaff AStaff = new clsStaff();
+        Int32 StaffId;
+        Boolean Found = false;
+        StaffId = Convert.ToInt32(txtStaffId.Text);
+        Found = AStaff.Find(StaffId);
+        if (Found == true)
+        {
+            txtStaffFirstName.Text = AStaff.StaffFirstName;
+            txtStaffLastName.Text = AStaff.StaffLastName;
+            txtStaffDOB.Text = AStaff.StaffDOB.ToString();
+            txtStaffEmail.Text = AStaff.StaffEmail;
+            txtStaffPhone.Text = AStaff.StaffPhone;
+            txtDateAdded.Text = AStaff.DateAdded.ToString();
+            chkAgeCheck.Checked = AStaff.AgeCheck;
+
+        }
+    }
 }
+
