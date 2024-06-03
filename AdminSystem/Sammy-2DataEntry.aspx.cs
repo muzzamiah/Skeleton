@@ -39,6 +39,13 @@ public partial class _1_DataEntry : System.Web.UI.Page
             AnCustomer.CustomerEmail = CustomerEmail;
             AnCustomer.CustomerPhone = CustomerPhone;
             AnCustomer.DateAdded = Convert.ToDateTime(DateAdded);
+            AnCustomer.AgeCheck = chkAgeCheck.Checked;
+            clsCustomerCollection CustomerList = new clsCustomerCollection();
+            //set the ThisCustomer Property
+            CustomerList.ThisCustomer = AnCustomer;
+            //add the new record
+            CustomerList.Add();
+            Response.Redirect("Sammy-2List.aspx");
 
 
             Session["AnCustomer"] = AnCustomer;
