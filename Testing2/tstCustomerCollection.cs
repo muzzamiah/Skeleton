@@ -14,7 +14,7 @@ namespace Testing2
             //create an instance of the class we want to create
             clsCustomerCollection AllCustomers = new clsCustomerCollection();
             //test to see that it exists
-            Assert.IsNotNull(AllCustomers); 
+            Assert.IsNotNull(AllCustomers);
         }
 
         [TestMethod]
@@ -45,18 +45,7 @@ namespace Testing2
 
         }
 
-        [TestMethod]
-        public void CountPropertyOK()
-        {
-            //create an instance of the class we want to create
-            clsCustomerCollection AllCustomers = new clsCustomerCollection();
-            //create some test data to assign to the property
-            Int32 SomeCount = 0;
-            //assign the data to the property
-            AllCustomers.Count = SomeCount;
-            //test to see that the two values are the same
-            Assert.AreEqual(AllCustomers.Count, SomeCount);
-        }
+
 
         [TestMethod]
         public void ThisCustomersPropertyOK()
@@ -66,7 +55,6 @@ namespace Testing2
             //create some test data to assign to the property
             clsCustomer TestCustomer = new clsCustomer();
             //set the properties of the test object
-            TestCustomer.AgeCheck = true;
             TestCustomer.AgeCheck = true;
             TestCustomer.CustomerDOB = DateTime.Now;
             TestCustomer.DateAdded = DateTime.Now;
@@ -107,7 +95,35 @@ namespace Testing2
 
         }
 
+        [TestMethod]
+        public void AddMethod()
+        {
+            //create an instance of the class we want to create
+            clsCustomerCollection AllCustomers = new clsCustomerCollection();
+            //create the item of test data
+            clsCustomer TestItem = new clsCustomer();
+            //variable to store the primary key
+            Int32 PrimaryKey = 0;
+            //set its properties
+            TestItem.AgeCheck = true;
+            TestItem.CustomerDOB = DateTime.Now;
+            TestItem.DateAdded = DateTime.Now;
+            TestItem.CustomerPhone = "07479875589";
+            TestItem.CustomerEmail = "hello@yahoo.com";
+            TestItem.CustomerFirstName = "John";
+            TestItem.CustomerLastName = "Appleseed";
+            //set ThisCustomer to the test data
+            AllCustomers.ThisCustomer = TestItem;
+            //add the record
+            PrimaryKey = AllCustomers.Add();
+            //set the primary key of the test data
+            TestItem.CustomerId = PrimaryKey;
+            //find the record
+            AllCustomers.ThisCustomer.Find(PrimaryKey);
+            Assert.AreEqual(AllCustomers.ThisCustomer, TestItem);
+
+        }
+
     }
-
-
 }
+

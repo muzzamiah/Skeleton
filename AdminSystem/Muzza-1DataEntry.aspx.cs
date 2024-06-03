@@ -13,37 +13,24 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
     }
 
-    protected void TextBox1_TextChanged(object sender, EventArgs e)
+    protected void btnFind_Click(object sender, EventArgs e)
     {
+        clsStaff AStaff = new clsStaff();
+        Int32 StaffId;
+        Boolean Found = false;
+        StaffId = Convert.ToInt32(txtStaffId.Text);
+        Found = AStaff.Find(StaffId);
+        if (Found == true)
+        {
+            txtStaffFirstName.Text = AStaff.StaffFirstName;
+            txtStaffLastName.Text = AStaff.StaffLastName;
+            txtStaffDOB.Text = AStaff.StaffDOB.ToString();
+            txtStaffEmail.Text = AStaff.StaffEmail;
+            txtStaffPhone.Text = AStaff.StaffPhone;
+            txtDateAdded.Text = AStaff.DateAdded.ToString();
+            chkAgeCheck.Checked = AStaff.AgeCheck;
 
-    }
-
-    protected void Button2_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("1Viewer.aspx");
-
-    }
-
-    protected void btnCancel_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("1Viewer.aspx");
-    }
-
-    protected void btnOK_Click(object sender, EventArgs e)
-    {
-        StaffName AName = new StaffName();
-        AName.StaffId = txtStaffID.Text;
-        Session["AName"] = AName;
-        Response.Redirect("1Viewer.aspx");
-    }
-
-    protected void txtStaffID_TextChanged(object sender, EventArgs e)
-    {
-
+        }
     }
 }
 
-internal class StaffName
-{
-    public string StaffId { get; internal set; }
-}
