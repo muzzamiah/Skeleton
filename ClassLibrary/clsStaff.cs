@@ -1,13 +1,110 @@
 ﻿using System;
+using System.Diagnostics.Eventing.Reader;
 
 namespace ClassLibrary
 {
     public class clsStaff
     {
-        //private data member for the address id property
+       
+        public DateTime DateAdded { get; set; }
+        public string StaffFirstName { get; set; }
+        public string StaffLastName { get; set; }
+        public DateTime StaffDOB { get; set; }
+        public string StaffEmail { get; set; }
+        public string StaffPhone { get; set; }
+
+
+
+        public bool Find(int StaffId)
+        {
+            //create an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+            //add the parameter for the customer id to search for
+            DB.AddParameter("@StaffId", StaffId);
+            //execute the stored procedure
+            DB.Execute("sproc_tblStaff_FilterByStaffId");
+            //if one record is found (there should either be one or zero
+            if (DB.Count == 1)
+
+            {
+                mStaffId = Convert.ToInt32(DB.DataTable.Rows[0]["StaffId"]);
+               
+                DateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["DateAdded"]);
+                StaffFirstName = Convert.ToString(DB.DataTable.Rows[0]["StaffFirstName"]);
+                StaffLastName = Convert.ToString(DB.DataTable.Rows[0]["StaffLastName"]);
+                StaffDOB = Convert.ToDateTime(DB.DataTable.Rows[0]["StaffDOB"]);
+                StaffEmail = Convert.ToString(DB.DataTable.Rows[0]["StaffEmail"]);
+                StaffPhone = Convert.ToString(DB.DataTable.Rows[0]["StaffPhone"]);
+                //return that everything worked OK
+                return true;
+                //if no record was found
+            }
+            else
+            {
+
+                //return false indicating there is a problem
+                return false;
+
+            }
+
+        }
+
+        public string Valid(string StaffFirstName, string StaffLastName, string StaffDOB, string StaffPhone, string StaffEmail, string dateAdded)
+
+        {
+            //create a string variable to store the error
+            String Error = "";
+            //create a temporary variable to store date values
+            DateTime DateTemp;
+            //if the customer firstname is blank
+            if (StaffFirstName.Length == 0)
+            {
+                //record the error
+                Error = Error + "The firstname no may not be blank : ";
+            }
+            //if the customer firstname is greater than 6 characters
+            if (StaffFirstName.Length > 6)
+            {
+                //record the error
+                Error = Error + "The firstname no must be less than 6 characters : ";
+            }
+
+            DateTime DateComp = DateTime.Now.Date;
+
+            try
+            {
+                //copy the dateAdded value to the DateTemp variable
+                DateTemp = Convert.ToDateTime(dateAdded);
+
+                if (DateTemp < DateComp) //compare dateAdded with Date
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the past : ";
+                }
+                //check to see if the date is greater than todays date
+                if (DateTemp > DateComp)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the future : ";
+                }
+            }
+            catch
+            {
+                //record the error
+                Error = Error + "The date ws not a valid date : ";
+            }
+
+
+            return Error;
+        }
+
+
+
+        //private data member for the customer id property
         private Int32 mStaffId;
-        //addressId public property
-        public int StaffId
+
+        //CustomerId public property
+        public Int32 StaffId
         {
             get
             {
@@ -20,147 +117,5 @@ namespace ClassLibrary
                 mStaffId = value;
             }
         }
-        //private data member for the house no property
-        private string mHouseNo;
-        //house no public property
-        public string HouseNo
-        {
-            get
-            {
-                //this line of code sends data out of the property
-                return mHouseNo;
-            }
-            set
-            {
-                //this line of code allows data into the property
-                mHouseNo = value;
-            }
-        }
-
-        //private data member for the street property
-        private string mStreet;
-        //street public property
-        public string Street
-        {
-            get
-            {
-                //this line of code sends data out of the property
-                return mStreet;
-            }
-            set
-            {
-                //this line of code allows data into the property
-                mStreet = value;
-            }
-        }
-        //private data member for the town property
-        private string mTown;
-        //town public property
-        public string Town
-        {
-            get
-            {
-                //this line of code sends data out of the property
-                return mTown;
-            }
-            set
-            {
-                //this line of code allows data into the property
-                mTown = value;
-            }
-        }
-        //private data member for the post code property
-        private string mPostCode;
-        //post code public property
-        public string PostCode
-        {
-            get
-            {
-                //this line of code sends data out of the property
-                return mPostCode;
-            }
-            set
-            {
-                //this line of code allows data into the property
-                mPostCode = value;
-            }
-        }
-
-        //private data member for the county no property
-        private Int32 mCountyCode;
-        //county no public property
-        public int CountyCode
-        {
-            get
-            {
-                //this line of code sends data out of the property
-                return mCountyCode;
-            }
-            set
-            {
-                //this line of code allows data into the property
-                mCountyCode = value;
-            }
-        }
-        //private data member for the date added property
-        private DateTime mDateAdded;
-        //date added public property
-        public DateTime DateAdded
-        {
-            get
-            {
-                //this line of code sends data out of the property
-                return mDateAdded;
-            }
-            set
-            {
-                //this line of code allows data into the property
-                mDateAdded = value;
-            }
-        }
-        //private data member for the active property
-        private Boolean mActive;
-        //active public property
-        public bool Active
-        {
-            get
-            {
-                //this line of code sends data out of the property
-                return mActive;
-            }
-            set
-            {
-                //this line of code allows data into the property
-                mActive = value;
-            }
-        }
-
-        /****** FIND METHOD ******/
-        public bool Find(int StaffId)
-        {
-            clsStaffConnection DB = new clsStaffConnection();
-            DB.AddParameter("@StaffId", StaffId);
-            DB.Execute("sproc_tblStaff_FilteredByStaffId");
-            if (DB.Count == 1)
-            {
-                //set the private data members to the test data value
-                mStaffId = Convert.ToInt32(DB.DataTable.Rows[0]["StaffId"]);
-                mHouseNo = Convert.ToInt32(DB.DataTable.Rows[0]["HouseNo"]);
-                mStreet = Convert.ToString(DB.DataTable.Rows[0]["Street"]);
-                mTown = Convert.ToString(DB.DataTable.Rows[0]["Town"]);
-                mPostCode = Convert.ToString(DB.DataTable.Rows[0]["PostCode"]);
-                mCountyCode = Convert.ToInt32(DB.DataTable.Rows[0]["CountyCode"]);
-                mDateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["PostCode"]);
-                mActive = Convert.ToBoolean(DB.DataTable.Rows[0]["Active"]);
-                //always return true
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
     }
 }
-
-
