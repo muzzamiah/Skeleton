@@ -30,10 +30,11 @@
         </p>
         <asp:Label ID="lblProductNoId" runat="server" style="z-index: 1; left: 19px; top: 102px; position: absolute" Text="Product Number" height="19px" width="89px"></asp:Label>
         <asp:TextBox ID="txtProductNoId" runat="server" style="z-index: 1; left: 275px; top: 97px; position: absolute; width: 124px;" height="22px"></asp:TextBox>
-        <asp:Label ID="lblDateOfOrderId" runat="server" style="z-index: 1; left: 10px; top: 252px; position: absolute" Text="Date Of Order" height="19px" width="89px"></asp:Label>
+        <asp:Label ID="lblDateOfOrderId" runat="server" style="z-index: 1; left: 127px; top: 240px; position: absolute" Text="Date Of Order" height="19px" width="89px"></asp:Label>
         <asp:Calendar ID="Calendar1" runat="server" style="z-index: 1; left: 7px; top: 301px; position: absolute; height: 188px; width: 259px"></asp:Calendar>
         <asp:Button ID="btmConfirm" runat="server" OnClick="btmConfirm_Click" style="z-index: 1; left: 5px; top: 502px; position: absolute" Text="Confirm" />
         <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 97px; top: 502px; position: absolute" Text="Cancel" />
+        <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="Button" />
     </form>
 </body>
 </html>
