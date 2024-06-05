@@ -31,8 +31,10 @@ namespace Testing3
             //Testing to see that both these values are the same
             Assert.AreEqual(ASupplier.Active, TestData);
 
-        /***Contract Start Date Property Test ***/
+        
         }
+
+        /***Contract Start Date Property Test ***/
         [TestMethod]
         public void ContractStartDatePropertyOK()
         {
@@ -59,8 +61,10 @@ namespace Testing3
             //Testing to see that both these values are the same
             Assert.AreEqual(ASupplier.ContractEndDate, TestData);
 
-        /***Supplier ID Property Test ***/
+        
         }
+
+        /***Supplier ID Property Test ***/
         [TestMethod]
         public void SupplierIdPropertyOK()
         {
