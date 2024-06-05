@@ -180,6 +180,7 @@ namespace ClassLibrary
                 mStaffId = value;
             }
         }
+
+        public string StaffRole { get; internal set; }
     }
-}
 }
