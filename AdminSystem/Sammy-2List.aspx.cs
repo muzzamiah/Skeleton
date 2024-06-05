@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Activities.Expressions;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -39,5 +40,30 @@ public partial class _1_List : System.Web.UI.Page
         Session["CustomerId"] = -1;
         //redirect to the data entry page
         Response.Redirect("Sammy-2DataEntry.aspx");
+    }
+
+
+    protected void btnEdit_Click(object sender, EventArgs e)
+    {
+        //variable to store the primary key value of the record to be edited
+        Int32 CustomerId;
+        //if a record has been selected from the list
+        if (lstCustomerList.SelectedIndex != -1)
+          {
+            //get the primary key value of the record to edit
+            CustomerId = Convert.ToInt32(lstCustomerList.SelectedValue);
+            //store the data in the session object
+            Session["CustomerId"] = CustomerId;
+            //redirect to the edit page
+            Response.Redirect("Sammy-2List.aspx");
+
+        }
+
+        else //if no record has been selected
+
+        {
+            lblError.Text = "Please select a record from the list to edit";
+
+        }
     }
 }
