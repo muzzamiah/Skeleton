@@ -79,7 +79,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
                 CustomerList.Update();
             }
             //redirect back to the list page
-            Response.Redirect("Sammy-2DataEntry.aspx");
+            Response.Redirect("CustomerDataEntry.aspx");
 
             
         }

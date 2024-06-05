@@ -39,7 +39,7 @@ public partial class _1_List : System.Web.UI.Page
         //store -1 into the session object to indicate this is a new record
         Session["CustomerId"] = -1;
         //redirect to the data entry page
-        Response.Redirect("Sammy-2DataEntry.aspx");
+        Response.Redirect("CustomerDataEntry.aspx");
     }
 
 
@@ -55,7 +55,7 @@ public partial class _1_List : System.Web.UI.Page
             //store the data in the session object
             Session["CustomerId"] = CustomerId;
             //redirect to the edit page
-            Response.Redirect("Sammy-2List.aspx");
+            Response.Redirect("CustomerList.aspx");
 
         }
 
@@ -65,5 +65,27 @@ public partial class _1_List : System.Web.UI.Page
             lblError.Text = "Please select a record from the list to edit";
 
         }
+    }
+
+    protected void btnDelete_Click(object sender, EventArgs e)
+    {
+        //variable to store the primary key value of the record to be deleted
+        Int32 CustomerId;
+        //if a record has been selected from the list
+        if (lstCustomerList.SelectedIndex != -1)
+        {
+            //get the primary key value of the record to edit
+            CustomerId = Convert.ToInt32(lstCustomerList.SelectedValue);
+            //store the data in the session object
+            Session["CustomerId"] = CustomerId;
+            //redirect to the edit page
+            Response.Redirect("CustomerConfirmDelete.aspx");
+        }
+        else //if no record has been selected
+
+        {
+            lblError.Text = "Please select a record from the list to delete";
+        }
+
     }
 }
