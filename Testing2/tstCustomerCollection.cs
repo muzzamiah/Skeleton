@@ -199,7 +199,30 @@ namespace Testing2
             Assert.IsFalse(Found);
         }
 
+        [TestMethod]
+        public void ReportByEmailMethodOK()
+        {
+            //create an instance of the class containing unfiltered results
+            clsCustomerCollection AllCustomers = new clsCustomerCollection();
+            //create an instance of the filtered data
+            clsCustomerCollection FilteredCustomers = new clsCustomerCollection();
+            //apply a blank string
+            FilteredCustomers.ReportByEmail("*************");
+            //test to see that the two values are the same
+            Assert.AreEqual(AllCustomers.Count, FilteredCustomers.Count);
+        }
 
+        [TestMethod]
+        public void ReportByEmailNoneFound()
+        {
+            
+            //create an instance of the class we want to create
+            clsCustomerCollection FilteredCustomers = new clsCustomerCollection();
+            //apply a blank string
+            FilteredCustomers.ReportByEmail("hello@yahoo.com");
+            //test to see that the two values are the same
+            Assert.AreEqual(0, FilteredCustomers.Count);
+        }
     }
 }
 

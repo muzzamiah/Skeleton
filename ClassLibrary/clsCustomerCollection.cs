@@ -4,7 +4,9 @@ using System.Collections.Generic;
 namespace ClassLibrary
 {
     public class clsCustomerCollection
-    {
+    { 
+    
+
 
         //private data member for the list
         List<clsCustomer> mCustomerList = new List<clsCustomer>();
@@ -25,10 +27,13 @@ namespace ClassLibrary
             }
         }
 
+        
+
+       
 
 
 
-        public int Count
+    public int Count
         {
             get
             {
@@ -59,6 +64,15 @@ namespace ClassLibrary
         //constructor for the class
         public clsCustomerCollection()
         {
+
+    
+                //object for the data connection
+                clsDataConnection DB = new clsDataConnection();
+                //execute the stored procedure
+                DB.Execute("sproc_tblCustomer_SelectAll");
+                //populate the array list with the data table
+                PopulateArray(DB);
+            
             //private data member for the list
             List<clsCustomer> mCustomerList = new List<clsCustomer> ();
             //private member data for thisCustomer
@@ -93,7 +107,7 @@ namespace ClassLibrary
             //variable to store the record count
             Int32 RecordCount = 0;        
             //onject for the data connect
-            clsDataConnection DB = new clsDataConnection();
+            //clsDataConnection DB = new clsDataConnection();
             //execute the stored procedure
             DB.Execute("sproc_tblCustomer_SelectAll");
             //get the count of records
@@ -172,5 +186,55 @@ namespace ClassLibrary
             //execute the stored procedure
             DB.Execute("sproc_tblCustomer_Delete");
         }
+
+        public void ReportByEmail(string CustomerEmail)
+        {
+            //filters the records based on a full or partial email
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //send the email parameter to the database
+            DB.AddParameter("@CustomerEmail", CustomerEmail);
+            //execute the stored procedure
+            DB.Execute("sproc_tblCustomer_FilterByEmail");
+            //populate the array list with the data table
+            PopulateArray(DB);
+        }
+
+        void PopulateArray(clsDataConnection DB)
+
+        {
+            //populates the array list based on the data table in the parameter
+            //variable for the index
+            Int32 Index = 0;
+            //variable to store the record count
+            Int32 RecordCount;
+            //get the count of records
+            RecordCount = DB.Count;
+            //clear the private array list
+            mCustomerList = new List<clsCustomer>();
+            //while there are records to process
+            while (Index < RecordCount)
+
+            {
+                //create a blank customer object
+                clsCustomer AnCustomer = new clsCustomer();
+                //read in the fields from the current record
+
+                AnCustomer.CustomerFirstName = Convert.ToString(DB.DataTable.Rows[Index]["CustomerFirstName"]);
+                AnCustomer.CustomerLastName = Convert.ToString(DB.DataTable.Rows[Index]["CustomerLastName"]);
+                AnCustomer.CustomerPhone = Convert.ToString(DB.DataTable.Rows[Index]["CustomerPhone"]);
+                AnCustomer.CustomerEmail = Convert.ToString(DB.DataTable.Rows[Index]["CustomerEmail"]);
+                // (NEED TO FIX) AnCustomer.DateAdded = Convert.ToDateTime(DB.DataTable.Rows[Index]["DateAdded"]);
+                // (NEED TO FIX) AnCustomer.CustomerDOB = Convert.ToDateTime(DB.DataTable.Rows[Index]["CustomerDOB"]);
+                // (NEED TO FIX) AnCustomer.AgeCheck = Convert.ToBoolean(DB.DataTable.Rows[Index]["AgeCheck"]);
+                //add the record to the private data member
+                mCustomerList.Add(AnCustomer);
+                //point at the next record
+                Index++;
+            }
+
+
+        }
+
     }
 }
