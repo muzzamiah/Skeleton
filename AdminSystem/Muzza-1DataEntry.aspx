@@ -1,6 +1,19 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Muzza-1DataEntry.aspx.cs" Inherits="_1_DataEntry" %>
 
 <!DOCTYPE html>
+<script runat="server">
+
+    protected void btnOK_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void txtStaffId_TextChanged(object sender, EventArgs e)
+    {
+
+    }
+</script>
+
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -13,15 +26,15 @@
 </head>
 <body style="height: 669px">
     <form id="form1" runat="server">
-        <div>
+        <div style="margin-left: 40px">
             <asp:Label ID="lblStaffId" runat="server" style="z-index: 1; left: 12px; top: 164px; position: absolute" Text="Staff ID"></asp:Label>
-            <asp:TextBox ID="txtStaffId" runat="server" style="z-index: 1; left: 150px; top: 162px; position: absolute"></asp:TextBox>
+            <asp:TextBox ID="txtStaffId" runat="server" style="z-index: 1; left: 150px; top: 162px; position: absolute" OnTextChanged="txtStaffId_TextChanged"></asp:TextBox>
             <asp:TextBox ID="txtStaffFirstName" runat="server" style="z-index: 1; left: 150px; top: 195px; position: absolute"></asp:TextBox>
         </div>
-        <asp:Label ID="lblStaffFirstName" runat="server" style="z-index: 1; left: 12px; top: 194px; position: absolute" Text="Firstname" width="79px"></asp:Label>
+        <asp:Label ID="lblStaffLastName" runat="server" style="z-index: 1; left: 12px; top: 194px; position: absolute" Text="Firstname" width="79px"></asp:Label>
         <asp:CheckBox ID="chkAgeCheck" runat="server" style="z-index: 1; left: 145px; top: 419px; position: absolute" Text="Over 18?" />
         <p style="height: 425px; margin-top: 0px">
-            <asp:Label ID="lblStaffLastName" runat="server" style="z-index: 1; left: 12px; top: 225px; position: absolute" Text="Lastname" width="79px"></asp:Label>
+            <asp:Label ID="lblStaffFirtName" runat="server" style="z-index: 1; left: 12px; top: 225px; position: absolute" Text="Lastname" width="79px"></asp:Label>
             <asp:Label ID="lblStaffDOB" runat="server" style="z-index: 1; left: 12px; top: 259px; position: absolute" Text="Date Of Birth" width="79px"></asp:Label>
             <asp:Label ID="lblStaffEmail" runat="server" style="z-index: 1; left: 12px; top: 313px; position: absolute" Text="Email" width="79px"></asp:Label>
             <asp:Label ID="lblStaffPhone" runat="server" style="z-index: 1; left: 12px; top: 347px; position: absolute" Text="Phone" width="79px"></asp:Label>
