@@ -66,11 +66,17 @@ namespace ClassLibrary
             //create the items of test data
             clsStaff TestItem = new clsStaff();
             //set its properties
-            
+
+            clsDataConnection DB = new clsDataConnection();
+            //execute the stored procedure
+            DB.Execute("sproc_tblStaff_SelectAll");
+            //populate the array list with the data table
+            PopulateArray(DB);
+
             TestItem.StaffDOB = DateTime.Now;
             TestItem.DateAdded = DateTime.Now;
             TestItem.StaffPhone = "07479875589";
-            TestItem.StaffRole = "hello@yahoo.com";
+            TestItem.StaffRole = "Manager";
             TestItem.StaffFirstName = "John";
             TestItem.StaffLastName = "Appleseed";
             //add the test item to the test list
@@ -93,7 +99,7 @@ namespace ClassLibrary
             //variable to store the record count
             Int32 RecordCount = 0;
             //onject for the data connect
-            clsDataConnection DB = new clsDataConnection();
+           
             //execute the stored procedure
             DB.Execute("sproc_tblStaff_SelectAll");
             //get the count of records
@@ -122,6 +128,11 @@ namespace ClassLibrary
 
 
 
+        }
+
+        private void PopulateArray(clsDataConnection dB)
+        {
+            throw new NotImplementedException();
         }
 
         public int Add()
@@ -164,7 +175,12 @@ namespace ClassLibrary
 
         public void Delete()
         {
-            throw new NotImplementedException();
+            
+        }
+
+        public void ReportByEmail(string v)
+        {
+         
         }
     }
 }

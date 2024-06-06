@@ -102,7 +102,7 @@ namespace Testing1
             // Create some test data for the property
             string TestData = "Manager";
             // Assign the data to the property
-            AStaff.StaffRole = TestData;
+            AStaff.StaffEmail = TestData;
             // Test to see that the two values are the same
             Assert.AreEqual(AStaff.StaffRole, TestData);
         }
@@ -861,7 +861,7 @@ namespace Testing1
             TestItem.StaffDOB = DateTime.Now;
             TestItem.DateAdded = DateTime.Now;
             TestItem.StaffPhone = "07479875589";
-            TestItem.StaffRole = "Manager";
+            TestItem.StaffEmail = "Manager";
             TestItem.StaffFirstName = "John";
             TestItem.StaffLastName = "Appleseed";
             //set thisStaff to the test data
@@ -871,11 +871,11 @@ namespace Testing1
             //set the primary key of the test data
             TestItem.StaffId = PrimaryKey;
             //modify the test record
-            TestItem.AgeCheck = false;
+            
             TestItem.StaffDOB = DateTime.Now;
             TestItem.DateAdded = DateTime.Now;
             TestItem.StaffPhone = "0785850332";
-            TestItem.StaffRole = "Manager";
+            TestItem.StaffEmail = "Manager";
             TestItem.StaffFirstName = "Jennifer";
             TestItem.StaffLastName = "Lopez";
             //set the record based on the new test data
@@ -887,7 +887,34 @@ namespace Testing1
             //test to see if ThisStaff matches the test data
             Assert.AreEqual(AllStaffs.ThisStaff, TestItem);
         }
+
+        [TestMethod]
+        public void ReportByRoleMethodOK()
+        {
+            //create an instance of the class containing unfiltered results
+            clsStaffCollection AllStaffs = new clsStaffCollection();
+            //create an instance of the filtered data
+            clsStaffCollection FilteredStaffs = new clsStaffCollection();
+            //apply a blank string
+            FilteredStaffs.ReportByEmail("*************");
+            //test to see that the two values are the same
+            Assert.AreEqual(AllStaffs.Count, FilteredStaffs.Count);
+        }
+
+        [TestMethod]
+        public void ReportByStaffNoneFound()
+        {
+
+            //create an instance of the class we want to create
+            clsStaffCollection FilteredStaffs = new clsStaffCollection();
+            //apply a blank string
+            FilteredStaffs.ReportByStaff("Manager");
+            //test to see that the two values are the same
+            Assert.AreEqual(0, FilteredStaffs.Count);
+        }
     }
 }
+    
+
 
 
