@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 
-namespace Testing2
+namespace Testing1
 {
     [TestClass]
     public class tstStaffCollection
