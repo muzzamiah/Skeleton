@@ -46,6 +46,8 @@
     <Compile Include="clsCustomerCollection.cs" />
     <Compile Include="clsDataConnection.cs" />
     <Compile Include="clsStaff.cs" />
+    <Compile Include="clsStaffCollection.cs" />
+    <Compile Include="clsStaffCollectionBase.cs" />
     <Compile Include="clsStaffConnection.cs" />
     <Compile Include="clsSupplier.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
