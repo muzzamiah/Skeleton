@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace ClassLibrary
 {
     public class clsStaffCollection
     {
-
-
 
         //private data member for the list
         List<clsStaff> mStaffList = new List<clsStaff>();
@@ -26,9 +25,6 @@ namespace ClassLibrary
                 mStaffList = value;
             }
         }
-
-
-
 
 
 
@@ -64,15 +60,6 @@ namespace ClassLibrary
         //constructor for the class
         public clsStaffCollection()
         {
-
-
-            //object for the data connection
-            clsDataConnection DB = new clsDataConnection();
-            //execute the stored procedure
-            DB.Execute("sproc_tblStaff_SelectAll");
-            //populate the array list with the data table
-            PopulateArray(DB);
-
             //private data member for the list
             List<clsStaff> mStaffList = new List<clsStaff>();
             //private member data for thisStaff
@@ -80,13 +67,20 @@ namespace ClassLibrary
             //create the items of test data
             clsStaff TestItem = new clsStaff();
             //set its properties
-            
+
+            clsDataConnection DB = new clsDataConnection();
+            //execute the stored procedure
+            DB.Execute("sproc_tblStaff_SelectAll");
+            //populate the array list with the data table
+            PopulateArray(DB);
+
             TestItem.StaffDOB = DateTime.Now;
             TestItem.DateAdded = DateTime.Now;
             TestItem.StaffPhone = "07479875589";
-            TestItem.StaffEmail = "Manager";
+            TestItem.StaffRole = "Manager";
             TestItem.StaffFirstName = "John";
             TestItem.StaffLastName = "Appleseed";
+           
             //add the test item to the test list
             mStaffList.Add(TestItem);
             //re initialise the object for some new data
@@ -96,9 +90,10 @@ namespace ClassLibrary
             TestItem.StaffDOB = DateTime.Now;
             TestItem.DateAdded = DateTime.Now;
             TestItem.StaffPhone = "07479875589";
-            TestItem.StaffEmail = "Manager";
+            TestItem.StaffRole = "Manager";
             TestItem.StaffFirstName = "John";
             TestItem.StaffLastName = "Appleseed";
+           
             //add the item to the test list
             mStaffList.Add(TestItem);
 
@@ -107,7 +102,7 @@ namespace ClassLibrary
             //variable to store the record count
             Int32 RecordCount = 0;
             //onject for the data connect
-            //clsDataConnection DB = new clsDataConnection();
+           
             //execute the stored procedure
             DB.Execute("sproc_tblStaff_SelectAll");
             //get the count of records
@@ -122,9 +117,10 @@ namespace ClassLibrary
                 AStaff.StaffFirstName = Convert.ToString(DB.DataTable.Rows[Index]["StaffFirstName"]);
                 AStaff.StaffLastName = Convert.ToString(DB.DataTable.Rows[Index]["StaffLastName"]);
                 AStaff.StaffPhone = Convert.ToString(DB.DataTable.Rows[Index]["StaffPhone"]);
-                AStaff.StaffEmail = Convert.ToString(DB.DataTable.Rows[Index]["StaffRole"]);
+                AStaff.StaffRole = Convert.ToString(DB.DataTable.Rows[Index]["StaffRole"]);
                 AStaff.DateAdded = Convert.ToDateTime(DB.DataTable.Rows[Index]["DateAdded"]);
                 AStaff.StaffDOB = Convert.ToDateTime(DB.DataTable.Rows[Index]["StaffDOB"]);
+                
                 
                 //add the record to the private data member
                 mStaffList.Add(AStaff);
@@ -138,6 +134,10 @@ namespace ClassLibrary
 
         }
 
+        private void PopulateArray(clsDataConnection dB)
+        {
+            throw new NotImplementedException();
+        }
         public int Add()
         {
             //adds a record to the database based on the values of mThisStaff
@@ -147,7 +147,7 @@ namespace ClassLibrary
             DB.AddParameter("@StaffFirstName", mThisStaff.StaffFirstName);
             DB.AddParameter("@StaffLastName", mThisStaff.StaffLastName);
             DB.AddParameter("@StaffPhone", mThisStaff.StaffPhone);
-            DB.AddParameter("@StaffRole", mThisStaff.StaffRole);
+            DB.AddParameter("@StaffEmail", mThisStaff.StaffEmail);
             DB.AddParameter("@DateAdded", mThisStaff.DateAdded);
             DB.AddParameter("@StaffDOB", mThisStaff.StaffDOB);
             
@@ -168,10 +168,10 @@ namespace ClassLibrary
             DB.AddParameter("@StaffFirstName", mThisStaff.StaffFirstName);
             DB.AddParameter("@StaffLastName", mThisStaff.StaffLastName);
             DB.AddParameter("@StaffPhone", mThisStaff.StaffPhone);
-            DB.AddParameter("@StaffRole", mThisStaff.StaffRole);
+            DB.AddParameter("@StaffEmail", mThisStaff.StaffEmail);
             DB.AddParameter("@DateAdded", mThisStaff.DateAdded);
             DB.AddParameter("@StaffDOB", mThisStaff.StaffDOB);
-        
+         
             //execute the stored procedure
             DB.Execute("sproc_tblStaff_Update");
         }
@@ -187,54 +187,20 @@ namespace ClassLibrary
             DB.Execute("sproc_tblStaff_Delete");
         }
 
-        public void ReportByRole(string StaffRole)
+        public void ReportByEmail(string StaffEmail)
         {
-            //filters the records based on a full or partial Role
+            //filters the records based on a full or partial email
             //connect to the database
             clsDataConnection DB = new clsDataConnection();
-            //send the Role parameter to the database
-            DB.AddParameter("@StaffRole", StaffRole);
+            //send the email parameter to the database
+            DB.AddParameter("@StaffEmail", StaffEmail);
             //execute the stored procedure
-            DB.Execute("sproc_tblStaff_FilterByRole");
+            DB.Execute("sproc_tblStaff_FilterByEmail");
             //populate the array list with the data table
             PopulateArray(DB);
         }
-
-        void PopulateArray(clsDataConnection DB)
-
-        {
-            //populates the array list based on the data table in the parameter
-            //variable for the index
-            Int32 Index = 0;
-            //variable to store the record count
-            Int32 RecordCount;
-            //get the count of records
-            RecordCount = DB.Count;
-            //clear the private array list
-            mStaffList = new List<clsStaff>();
-            //while there are records to process
-            while (Index < RecordCount)
-
-            {
-                //create a blank Staff object
-                clsStaff AStaff = new clsStaff();
-                //read in the fields from the current record
-
-                AStaff.StaffFirstName = Convert.ToString(DB.DataTable.Rows[Index]["StaffFirstName"]);
-                AStaff.StaffLastName = Convert.ToString(DB.DataTable.Rows[Index]["StaffLastName"]);
-                AStaff.StaffPhone = Convert.ToString(DB.DataTable.Rows[Index]["StaffPhone"]);
-                AStaff.StaffEmail = Convert.ToString(DB.DataTable.Rows[Index]["StaffRole"]);
-                AStaff.DateAdded = Convert.ToDateTime(DB.DataTable.Rows[Index]["DateAdded"]);
-                AStaff.StaffDOB = Convert.ToDateTime(DB.DataTable.Rows[Index]["StaffDOB"]);
-               
-                //add the record to the private data member
-                mStaffList.Add(AStaff);
-                //point at the next record
-                Index++;
-            }
 
 
         }
 
     }
-}
