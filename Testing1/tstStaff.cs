@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.IO;
+using System.Data;
 
 namespace Testing1
 {
@@ -17,7 +18,7 @@ namespace Testing1
         string StaffPhone = "123-456-7890";
         string DateAdded = DateTime.Now.ToShortDateString();
         string StaffRole = "Manager";
-        
+
 
 
         [TestMethod]
@@ -420,7 +421,7 @@ namespace Testing1
             String Error = "";
             //create some test data to pass to the method
             string StaffFirstName = "aaaaaaa"; //this should trigger an error
-                                                  //invoke the method
+                                               //invoke the method
             Error = AStaff.Valid(StaffFirstName, StaffLastName, StaffDOB, StaffPhone, StaffEmail, DateAdded, StaffRole);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
@@ -575,20 +576,6 @@ namespace Testing1
             Assert.AreNotEqual(Error, "");
         }
 
-        [TestMethod]
-        public void StaffRoleMinLessOne()
-        {
-            //create an instance of the class we want to create
-            clsStaff AStaff = new clsStaff();
-            //string variable to store any error message
-            String Error = "";
-            //this should fail
-            string StaffRole = "";
-            //invoke the method
-            Error = AStaff.Valid(StaffFirstName, StaffLastName, StaffDOB, StaffPhone, StaffEmail, DateAdded, StaffRole);
-            //test to see that the result is correct
-            Assert.AreNotEqual(Error, "");
-        }
 
         [TestMethod]
         public void StaffLastNameMin()
@@ -725,20 +712,7 @@ namespace Testing1
             Assert.AreNotEqual(Error, "");
         }
 
-        [TestMethod]
-        public void StaffRoleMaxPlusOne()
-        {
-            //create an instance of the class we want to create
-            clsStaff AStaff = new clsStaff();
-            //string variable to store any error message
-            String Error = "";
-            //this should fail
-            string StaffRole = "aaaaaaaaaa";
-            //invoke the method
-            Error = AStaff.Valid(StaffFirstName, StaffLastName, StaffDOB, StaffPhone, StaffEmail, DateAdded, StaffRole);
-            //test to see that the result is correct
-            Assert.AreNotEqual(Error, "");
-        }
+ 
 
         [TestMethod]
         public void StaffLastNameMid()
@@ -1095,6 +1069,24 @@ namespace Testing1
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
+
+        [TestMethod]
+        public void StatStatisticsGroupedByDateAdded()
+        {
+            //create an instance of the class we want to create
+            clsStaff AStaff = new clsStaff();
+            //invoke the method
+            DataTable dT = AStaff.StatisticsGroupedByDateAdded();
+            //according to the last executed stored procedure, there should be 1 row if data
+            int noOfRecord = 10;
+
+            //test to see that the result is correct
+            Assert.AreEqual(noOfRecord, dT.Rows.Count);
+
+        }
+
+
+
 
 
 

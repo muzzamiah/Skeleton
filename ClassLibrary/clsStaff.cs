@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Diagnostics.Eventing.Reader;
 using System.IO;
 
@@ -185,6 +186,16 @@ namespace ClassLibrary
             }
         }
 
-        
+
+        public DataTable StatisticsGroupedByDateAdded()
+        {
+            //create an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+            //execute the stored procedure
+            DB.Execute("sproc_tblStaff_Count_GroupByAddedDate");
+            //there should be either zero, one or more records
+            return DB.DataTable;
+        }
+
     }
 }
