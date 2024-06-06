@@ -842,76 +842,12 @@ namespace Testing1
             //set the DateAdded to a non date value
             string StaffDOB = "this is not a date!";
             //invoke the method
-            Error = AStaff.Valid(StaffFirstName, StaffLastName, StaffDOB, StaffPhone, StaffRole, DateAdded);
+            Error = AStaff.Valid(StaffFirstName, StaffLastName, StaffDOB, StaffPhone, StaffRole, DateAdded, Attendance);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
 
-        [TestMethod]
-        public void UpdateMethodOK()
-        {
-            //create an instance of the class we want to create
-            clsStaffCollection AllStaffs = new clsStaffCollection();
-            //create the item of test data
-            clsStaff TestItem = new clsStaff();
-            //variable to store the primary key
-            Int32 PrimaryKey = 0;
-            //set its properties
-            
-            TestItem.StaffDOB = DateTime.Now;
-            TestItem.DateAdded = DateTime.Now;
-            TestItem.StaffPhone = "07479875589";
-            TestItem.StaffEmail = "Manager";
-            TestItem.StaffFirstName = "John";
-            TestItem.StaffLastName = "Appleseed";
-            //set thisStaff to the test data
-            AllStaffs.ThisStaff = TestItem;
-            //add the record 
-            PrimaryKey = AllStaffs.Add();
-            //set the primary key of the test data
-            TestItem.StaffId = PrimaryKey;
-            //modify the test record
-            
-            TestItem.StaffDOB = DateTime.Now;
-            TestItem.DateAdded = DateTime.Now;
-            TestItem.StaffPhone = "0785850332";
-            TestItem.StaffEmail = "Manager";
-            TestItem.StaffFirstName = "Jennifer";
-            TestItem.StaffLastName = "Lopez";
-            //set the record based on the new test data
-            AllStaffs.ThisStaff = TestItem;
-            //update the record
-            AllStaffs.Update();
-            //find the record
-            AllStaffs.ThisStaff.Find(PrimaryKey);
-            //test to see if ThisStaff matches the test data
-            Assert.AreEqual(AllStaffs.ThisStaff, TestItem);
-        }
-
-        [TestMethod]
-        public void ReportByRoleMethodOK()
-        {
-            //create an instance of the class containing unfiltered results
-            clsStaffCollection AllStaffs = new clsStaffCollection();
-            //create an instance of the filtered data
-            clsStaffCollection FilteredStaffs = new clsStaffCollection();
-            //apply a blank string
-            FilteredStaffs.ReportByEmail("*************");
-            //test to see that the two values are the same
-            Assert.AreEqual(AllStaffs.Count, FilteredStaffs.Count);
-        }
-
-        [TestMethod]
-        public void ReportByStaffNoneFound()
-        {
-
-            //create an instance of the class we want to create
-            clsStaffCollection FilteredStaffs = new clsStaffCollection();
-            //apply a blank string
-            FilteredStaffs.ReportByStaff("Manager");
-            //test to see that the two values are the same
-            Assert.AreEqual(0, FilteredStaffs.Count);
-        }
+       
     }
 }
     

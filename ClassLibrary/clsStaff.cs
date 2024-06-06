@@ -13,6 +13,7 @@ namespace ClassLibrary
         public DateTime StaffDOB { get; set; }
         public string StaffEmail { get; set; }
         public string StaffPhone { get; set; }
+        public bool Attendance {  get; set; }
 
 
 
@@ -165,6 +166,7 @@ namespace ClassLibrary
 
         //private data member for the customer id property
         private Int32 mStaffId;
+        
 
         //CustomerId public property
         public Int32 StaffId

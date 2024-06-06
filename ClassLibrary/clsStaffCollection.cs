@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace ClassLibrary
 {
@@ -79,6 +80,7 @@ namespace ClassLibrary
             TestItem.StaffRole = "Manager";
             TestItem.StaffFirstName = "John";
             TestItem.StaffLastName = "Appleseed";
+           
             //add the test item to the test list
             mStaffList.Add(TestItem);
             //re initialise the object for some new data
@@ -91,6 +93,7 @@ namespace ClassLibrary
             TestItem.StaffRole = "Manager";
             TestItem.StaffFirstName = "John";
             TestItem.StaffLastName = "Appleseed";
+           
             //add the item to the test list
             mStaffList.Add(TestItem);
 
@@ -118,6 +121,7 @@ namespace ClassLibrary
                 AStaff.DateAdded = Convert.ToDateTime(DB.DataTable.Rows[Index]["DateAdded"]);
                 AStaff.StaffDOB = Convert.ToDateTime(DB.DataTable.Rows[Index]["StaffDOB"]);
                 
+                
                 //add the record to the private data member
                 mStaffList.Add(AStaff);
                 //point at the next record
@@ -134,7 +138,6 @@ namespace ClassLibrary
         {
             throw new NotImplementedException();
         }
-
         public int Add()
         {
             //adds a record to the database based on the values of mThisStaff
@@ -144,7 +147,7 @@ namespace ClassLibrary
             DB.AddParameter("@StaffFirstName", mThisStaff.StaffFirstName);
             DB.AddParameter("@StaffLastName", mThisStaff.StaffLastName);
             DB.AddParameter("@StaffPhone", mThisStaff.StaffPhone);
-            DB.AddParameter("@StaffRole", mThisStaff.StaffRole);
+            DB.AddParameter("@StaffEmail", mThisStaff.StaffEmail);
             DB.AddParameter("@DateAdded", mThisStaff.DateAdded);
             DB.AddParameter("@StaffDOB", mThisStaff.StaffDOB);
             
@@ -168,19 +171,36 @@ namespace ClassLibrary
             DB.AddParameter("@StaffEmail", mThisStaff.StaffEmail);
             DB.AddParameter("@DateAdded", mThisStaff.DateAdded);
             DB.AddParameter("@StaffDOB", mThisStaff.StaffDOB);
-            
+         
             //execute the stored procedure
             DB.Execute("sproc_tblStaff_Update");
         }
 
         public void Delete()
         {
-            
+            //deletes the record pointed to by thisStaff 
+            //connect to database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedure
+            DB.AddParameter("@StaffId", mThisStaff.StaffId);
+            //execute the stored procedure
+            DB.Execute("sproc_tblStaff_Delete");
         }
 
-        public void ReportByEmail(string v)
+        public void ReportByEmail(string StaffEmail)
         {
-         
+            //filters the records based on a full or partial email
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //send the email parameter to the database
+            DB.AddParameter("@StaffEmail", StaffEmail);
+            //execute the stored procedure
+            DB.Execute("sproc_tblStaff_FilterByEmail");
+            //populate the array list with the data table
+            PopulateArray(DB);
         }
+
+
+        }
+
     }
-}
