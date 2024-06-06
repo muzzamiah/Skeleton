@@ -143,7 +143,7 @@ namespace ClassLibrary
                 //this line of code allows data into the property
                 mQuantity = value;
             }
-        }
+
         //private data member for the county no property
         private Int32 mOrderNo;
         //county no public property
@@ -159,7 +159,7 @@ namespace ClassLibrary
                 //this line of code allows data into the property
                 mOrderNo = value;
             }
-        }
+
         //private data member for the date added property
         private DateTime mOrderDate;
         //date added public property
@@ -175,7 +175,7 @@ namespace ClassLibrary
                 //this line of code allows data into the property
                 mOrderDate = value;
             }
-        }
+
         //private data member for the county no property
         private Int32 mPrice;
         //county no public property
@@ -191,7 +191,7 @@ namespace ClassLibrary
                 //this line of code allows data into the property
                 mPrice = value;
             }
-        }
+
 
 
         //Find Method
@@ -215,3 +215,4 @@ DB.AddParameter("@AddressId", AddressId)
                 mAddressId = Convert.ToInt32(DB.DataTable.Rows[0]["AddressID"]);
 
             }
+            

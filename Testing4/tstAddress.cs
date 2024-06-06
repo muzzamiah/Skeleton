@@ -194,7 +194,7 @@ namespace Testing4
         //string variable to store any error message
         String Error = "";
         //invoke the method
-        Error = AnCustomer.Valid(ProductName, Quantity, OrderNo, Price, OrderDate, OrderAddress);
+        Error = AnCustomer.Valid(ProductName, Quantity, OrderNo, Price, OrderDate, OrderAddress, DateAdded,);
         //test to see that the result is correct        
         Assert.AreEqual(Error, "");
     }
@@ -206,7 +206,7 @@ namespace Testing4
         //string variable to store any error message
         String Error = "";
         //invoke the method
-        Error = AnCustomer.Valid(ProductName, Quantity, OrderNo, Price, OrderDate, OrderAddress);
+        Error = AnCustomer.Valid(ProductName, Quantity, OrderNo, Price, OrderDate, OrderAddress, DateAdded,);
         //test to see that the result is correct        
         Assert.AreEqual(Error, "");
     }
@@ -221,7 +221,7 @@ namespace Testing4
         //create some test data to pass to the method
         string Product = ""; //this should trigger an error
                              //invoke the method
-        Error = anOrder.valid(ProductName, Quantity, OrderNo, Price, OrderDate, OrderAddress);
+        Error = anOrder.valid(ProductName, Quantity, OrderNo, Price, OrderDate, OrderAddress, DateAdded,);
         //test to see that the result is correct
         Assert.AreNotEqual(Error, "");
     }
@@ -236,7 +236,7 @@ namespace Testing4
         //create some test data to pass to the method
         string ProductName = "A";//this should be okay
                                  //invoke the method
-        Error = anOrder.valid(ProductName, Quantity, OrderNo, Price, OrderDate, OrderAddress);
+        Error = anOrder.valid(ProductName, Quantity, OrderNo, Price, OrderDate, OrderAddress, DateAdded,);
         //test to see that the result is correct
         Assert.AreNotEqual(Error, "");
 
@@ -252,7 +252,7 @@ namespace Testing4
         //create some test data to pass to the method
         string ProductName = "Aa";  //this should  be okay
                                     //invoke the method
-        Error = anOrder.valid(ProductName, Quantity, OrderNo, Price, OrderDate, OrderAddress);
+        Error = anOrder.valid(ProductName, Quantity, OrderNo, Price, OrderDate, OrderAddress, DateAdded);
         //test to see that the result is correct
         Assert.AreNotEqual(Error, "");
 
@@ -268,7 +268,7 @@ namespace Testing4
         //create some test data to pass to the method
         string ProductName = "aa"; //This should be okay
                                    //invoke the method
-        Error = anOrder.valid(ProductName, Quantity, OrderNo, Price, OrderDate, OrderAddress);
+        Error = anOrder.valid(ProductName, Quantity, OrderNo, Price, OrderDate, OrderAddress, DateAdded,);
         //test to see that the result is correct
         Assert.AreNotEqual(Error, "");
 
@@ -284,7 +284,7 @@ namespace Testing4
         //create some test data to pass to the method
         string ProductName = "aaaaa"; // This should be okay
                                       //invoke the method
-        Error = anOrder.valid(ProductName, Quantity, OrderNo, Price, OrderDate, OrderAddress);
+        Error = anOrder.valid(ProductName, Quantity, OrderNo, Price, OrderDate, OrderAddress, DateAdded,);
         //test to see that the result is correct
         Assert.AreNotEqual(Error, "");
 
@@ -300,7 +300,7 @@ namespace Testing4
         //create some test data to pass to the method
         string ProductName = "aaaaa"; // This should be okay
                                       //invoke the method
-        Error = anOrder.valid(ProductName, Quantity, OrderNo, Price, OrderDate, OrderAddress);
+        Error = anOrder.valid(ProductName, Quantity, OrderNo, Price, OrderDate, OrderAddress, DateAdded,);
         //test to see that the result is correct
         Assert.AreNotEqual(Error, "");
 
@@ -316,7 +316,7 @@ namespace Testing4
         //create some test data to pass to the method
         string ProductName = "aaa"; //This should be okay
                                     //invoke the method
-        Error = anOrder.valid(ProductName, Quantity, OrderNo, Price, OrderDate, OrderAddress);
+        Error = anOrder.valid(ProductName, Quantity, OrderNo, Price, OrderDate, OrderAddress, DateAdded,);
         //test to see that the result is correct
         Assert.AreNotEqual(Error, "");
 
@@ -332,7 +332,7 @@ namespace Testing4
         //create some test data to pass to the method
         string ProductName = "aaaaaaa"; //This should be okay
                                         //invoke the method
-        Error = anOrder.valid(ProductName, Quantity, OrderNo, Price, OrderDate, OrderAddress);
+        Error = anOrder.valid(ProductName, Quantity, OrderNo, Price, OrderDate, OrderAddress, DateAdded,);
         //test to see that the result is correct
         Assert.AreNotEqual(Error, "");
 
@@ -349,7 +349,7 @@ namespace Testing4
         string ProductName = "";
         ProductName = ProductName.PadRight(500, 'a'); ; //This should trigger an error
                                                         //invoke the method
-        Error = anOrder.valid(ProductName, Quantity, OrderNo, Price, OrderDate, OrderAddress);
+        Error = anOrder.valid(ProductName, Quantity, OrderNo, Price, OrderDate, OrderAddress, DateAdded,);
         //test to see that the result is correct
         Assert.AreNotEqual(Error, "");
 
@@ -371,7 +371,7 @@ namespace Testing4
         //convert the date variable to a string variable
         string OrderDate = TestDate.ToString();
         //invoke the method
-        Error = AnOrder.Valid(ProductName, Quantity, OrderNo, Price, OrderDate, OrderAddress);
+        Error = AnOrder.Valid(ProductName, Quantity, OrderNo, Price, OrderDate, OrderAddress, DateAdded,);
         //test to see that the result is correct
         Assert.AreNotEqual(Error, "");
     }
@@ -391,7 +391,7 @@ namespace Testing4
         //convert the date variable to a string variable
         string OrderDate = TestDate.ToString();
         //invoke the method
-        Error = AnOrder.Valid(ProductName, Quantity, OrderNo, Price, OrderDate, OrderAddress);
+        Error = AnOrder.Valid(ProductName, Quantity, OrderNo, Price, OrderDate, OrderAddress, DateAdded,);
         //test to see that the result is correct
         Assert.AreNotEqual(Error, "");
     }
@@ -409,13 +409,13 @@ namespace Testing4
         //convert the date variable to a string variable
         string DateAdded = TestDate.ToString();
         //invoke the method
-        Error = AnOrder.Valid(ProductName, Quantity, OrderNo, Price, OrderDate, OrderAddress);
+        Error = AnOrder.Valid(ProductName, Quantity, OrderNo, Price, OrderDate, OrderAddress, DateAdded,);
         //test to see that the result is correct
         Assert.AreEqual(Error, "");
     }
 
     [TestMethod]
-    public void DateAddedExtremeMax()
+    public void OrderDateExtremeMax()
     {
         //create an instance of the class we want to create
         clsOrder AnAddress = new clsOrder();
@@ -430,7 +430,7 @@ namespace Testing4
         //convert the date variable to a string variable
         string DateAdded = TestDate.ToString();
         //invoke the method
-        Error = AnOrder.Valid(ProductName, Quantity, OrderNo, Price, OrderDate, OrderAddress);
+        Error = AnOrder.Valid(ProductName, Quantity, OrderNo, Price, OrderDate, OrderAddress, DateAdded,);
         //test to see that the result is correct
         Assert.AreNotEqual(Error, "");
     }
@@ -445,8 +445,69 @@ namespace Testing4
         //set the DateAdded to a non date value
         string DateAdded = "this is not a date!";
         //invoke the method
-        Error = AnOrder.Valid(ProductName, Quantity, OrderNo, Price, OrderDate, OrderAddress);
+        Error = AnOrder.Valid(ProductName, Quantity, OrderNo, Price, OrderDate, OrderAddress, DateAdded,);
         //test to see that the result is correct
         Assert.AreNotEqual(Error, "");
+    }
+    [TestMethod]
+
+    public void ListandCountOK()
+    {
+        //Create an instance of the class we want to create
+        clsOrderCollection AllAddresses = new clsOrderCollection();
+        //create some test data to assign to the property
+        //in this case the data needs to be a list of objects
+        List<clsOrder> TestList = new List<clsOrder>();
+        //Add an item to the list
+        //Create the item of the test data
+        clsOrder TestItem = new clsOrder();
+        //set its properties
+        TestItem.Active = true;
+        TestItem.OrderDate = DateTime.Now;
+        TestItem.DateAdded = DateTime.Now;
+        TestItem.Quantity = "2";
+        TestItem.ProductName = "YellowXKeyboard";
+        TestItem.OrderNo = "235567544";
+        TestItem.Price = "£21";
+        //add the item tp the test list 
+        TestList.Add(TestItem)
+        //assign the data to the property
+        AllAddresses.OrderList = TestList
+
+            Assert.AreEqual(AllAddresses.Count, TestList)
+            }
+
+
+    [TestMethod]
+    public void AddMethodOK()
+    public int Add
+    {
+        get
+        {
+            throw new NotImplementesException();
+            {
+                // Create an instance of the class we want to create
+                clsOrderCollection AllAddresses = new clsOrderCollection();
+                clsOrder TestItem = new clsOrder();
+                int32 Primarykey = 0;
+                //create the items of test data
+                clsOrder TestItem = new clsOrder();
+                //set its properties
+                TestItem.AgeCheck = true;
+                TestItem.OrderDate = DateTime.Now;
+                TestItem.DateAdded = DateTime.Now;
+                TestItem.Quantity = "2";
+                TestItem.ProductName = "YellowXKeyboard";
+                TestItem.OrderNo = "235567544";
+                TestItem.Price = "£21";
+
+                AllAddresses = ThisOrder = TestItem;
+                //add the record
+                Primarykey = AllAddresses.Add();
+                //find the record
+                AllAddresses.ThisOrder.Find(Primarykey);
+                Assert.AreEqual(AllAddresses.ThisOrder, TestItem);
+            }
+        }
     }
 }
