@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Activities.Expressions;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -54,6 +55,73 @@ public partial class _1_List : System.Web.UI.Page
         else
             lblError.Text = "Please select a record from the list to edit"
    }
-                }
+
+    protected void ButtonDelete_Click(object sender, EventArgs e)
+    {
+        
+            //variable to store the primary key value of the record to be deleted
+            Int32 CustomerId;
+            //if a record has been selected from the list
+            if (lstOrderList.SelectedIndex != -1)
+            {
+                //get the primary key value of the record to edit
+                CustomerId = Convert.ToInt32(lstOrderList.SelectedValue);
+                //store the data in the session object
+                Session["AddressId"] = AddressId;
+                //redirect to the edit page
+                Response.Redirect("Isaaq-4ConfirmDelete.aspx");
+            }
+            else //if no record has been selected
+
+            {
+                lblError.Text = "Please select a record from the list to delete";
+            }
+
+        }
+
+
+    protected void btnApplyFilter_Click(object sender, EventArgs e)
+    {
+        
+            //create an instance of the customer object
+            clsOrderCollection AnAddress = new clsOrderCollection();
+            //retrieve the value of email from the presentation layer
+            AnAddress.ReportProductName(txtFilter.Text);
+            //set the data sourc to the list of customers in the collection
+            lstOrderList.DataSource = AnAddress.OrderList;
+            //set the name of the primary key
+            lstOrderList.DataValueField = "AddressId";
+            //set the name of the field to display
+            lstOrderList.DataTextField = "Product Name";
+            //bind the data to the list
+            lstOrderList.DataBind();
+        }
+
+
+
+    protected void btnClearFilter_Click(object sender, EventArgs e)
+    {
+        //create an instance of the customer object
+        clsOrderCollection AnAddress = new clsOrderCollection();
+        //set an empty string
+        AnAddress.ReportProductName("");
+        //clear any existing filter to tidy up the interface    
+        txtFilter.Text = "";
+        //set the data source to the list of customers in the collection
+        lstOrderList.DataSource = AnAddress.CustomerList;
+        //set the name of the primary key
+        lstOrderList.DataValueField = "AddressId";
+        //set the name of the field to display
+        lstOrderList.DataTextField = "Product Name";
+        //bind the data to the list
+        lstOrderList.DataBind();
+
+    }
 
 }
+}
+
+    
+
+
+
