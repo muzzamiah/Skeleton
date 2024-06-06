@@ -41,11 +41,11 @@ public partial class _1_DataEntry : System.Web.UI.Page
         string StaffRole = txtStaffRole.Text;
         string StaffPhone = txtStaffPhone.Text;
         string DateAdded = txtDateAdded.Text;
-        
+
         //variable to store any error messages
         string Error = "";
         //validate the data
-        Error = AStaff.Valid(StaffFirstName, StaffLastName, StaffDOB, StaffPhone, StaffRole, DateAdded);
+        Error = AStaff.Valid(StaffFirstName, StaffLastName, StaffDOB, StaffPhone, StaffRole, DateAdded, StaffRole);
         //store the address in the session object
         if (Error == "")
         {
@@ -53,10 +53,10 @@ public partial class _1_DataEntry : System.Web.UI.Page
             AStaff.StaffFirstName = StaffFirstName;
             AStaff.StaffLastName = StaffLastName;
             AStaff.StaffDOB = Convert.ToDateTime(StaffDOB);
-            AStaff.StaffRole = StaffRole;
+            AStaff.StaffRole= StaffRole;
             AStaff.StaffPhone = StaffPhone;
             AStaff.DateAdded = Convert.ToDateTime(DateAdded);
-            
+
             clsStaffCollection StaffList = new clsStaffCollection();
 
             //if this is a new record i.e StaffId = -1 then add the data
@@ -114,7 +114,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
             txtStaffRole.Text = AStaff.StaffRole;
             txtStaffPhone.Text = AStaff.StaffPhone;
             txtDateAdded.Text = AStaff.DateAdded.ToString();
-            
+
 
         }
     }
@@ -130,10 +130,11 @@ public partial class _1_DataEntry : System.Web.UI.Page
         txtStaffFirstName.Text = StaffBook.ThisStaff.StaffFirstName;
         txtStaffLastName.Text = StaffBook.ThisStaff.StaffLastName;
         txtStaffDOB.Text = StaffBook.ThisStaff.StaffDOB.ToString();
-        txtStaffRole.Text = StaffBook.ThisStaff.StaffRole;
+        txtStaffEmail.Text = StaffBook.ThisStaff.StaffEmail;
         txtStaffPhone.Text = StaffBook.ThisStaff.StaffPhone;
         txtDateAdded.Text = StaffBook.ThisStaff.DateAdded.ToString();
-        
+        txtStaffRole.Text = StaffBook.ThisStaff.StaffRole;
+
 
     }
 

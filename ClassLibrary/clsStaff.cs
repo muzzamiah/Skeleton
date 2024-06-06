@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Diagnostics.Eventing.Reader;
 using System.IO;
 
@@ -14,6 +15,7 @@ namespace ClassLibrary
         public string StaffEmail { get; set; }
         public string StaffPhone { get; set; }
         public bool Attendance {  get; set; }
+        public string StaffRole { get; set; }
 
 
 
@@ -37,6 +39,7 @@ namespace ClassLibrary
                 StaffDOB = Convert.ToDateTime(DB.DataTable.Rows[0]["StaffDOB"]);
                 StaffEmail = Convert.ToString(DB.DataTable.Rows[0]["StaffEmail"]);
                 StaffPhone = Convert.ToString(DB.DataTable.Rows[0]["StaffPhone"]);
+                
                 //return that everything worked OK
                 return true;
                 //if no record was found
@@ -50,7 +53,7 @@ namespace ClassLibrary
             }
             
         }
-        public string Valid(string StaffFirstName, string StaffLastName, string StaffDOB, string StaffPhone, string StaffEmail, string DateAdded)
+        public string Valid(string StaffFirstName, string StaffLastName, string StaffDOB, string StaffPhone, string StaffEmail, string DateAdded, string staffRole)
 
         {
             //create a string variable to store the error
@@ -183,6 +186,16 @@ namespace ClassLibrary
             }
         }
 
-        public string StaffRole { get; internal set; }
+
+        public DataTable StatisticsGroupedByDateAdded()
+        {
+            //create an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+            //execute the stored procedure
+            DB.Execute("sproc_tblStaff_Count_GroupByAddedDate");
+            //there should be either zero, one or more records
+            return DB.DataTable;
+        }
+
     }
 }

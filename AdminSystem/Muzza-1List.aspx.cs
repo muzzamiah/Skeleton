@@ -63,5 +63,60 @@ public partial class _1_List : System.Web.UI.Page
             lblError.Text = "Please select a record from the list to edit";
 
         }
+
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+            //variable to store the primary key value of the record to be deleted
+            Int32 CustomerId;
+            //if a record has been selected from the list
+            if (lstCustomerList.SelectedIndex != -1)
+            {
+                //get the primary key value of the record to edit
+                CustomerId = Convert.ToInt32(lstCustomerList.SelectedValue);
+                //store the data in the session object
+                Session["CustomerId"] = CustomerId;
+                //redirect to the edit page
+                Response.Redirect("CustomerConfirmDelete.aspx");
+            }
+            else //if no record has been selected
+
+            {
+                lblError.Text = "Please select a record from the list to delete";
+            }
+
+        }
+
+        protected void btnApplyFilter_Click(object sender, EventArgs e)
+        {
+            //create an instance of the customer object
+            clsStaffCollection AStaff = new clsStaffCollection();
+            //retrieve the value of email from the presentation layer
+            AStaff.ReportByEmail(txtFilter.Text);
+            //set the data sourc to the list of customers in the collection
+            lstStaffList.DataSource = AStaff.StaffList;
+            //set the name of the primary key
+            lstStaffList.DataValueField = "StaffId";
+            //set the name of the field to display
+            lstStaffList.DataTextField = "StaffEmail";
+            //bind the data to the list
+            lstStaffList.DataBind();
+        }
+
+        protected void btnClearFilter_Click(object sender, EventArgs e)
+        {
+            //create an instance of the customer object
+            clsStaffCollection AStaff = new clsStaffCollection();
+            //retrieve the value of email from the presentation layer
+            AStaff.ReportByEmail(txtFilter.Text);
+            //set the data sourc to the list of customers in the collection
+            lstStaffList.DataSource = AStaff.StaffList;
+            //set the name of the primary key
+            lstStaffList.DataValueField = "StaffId";
+            //set the name of the field to display
+            lstStaffList.DataTextField = "StaffEmail";
+            //bind the data to the list
+            lstStaffList.DataBind();
+
+        }
     }
 }

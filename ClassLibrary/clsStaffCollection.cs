@@ -200,7 +200,10 @@ namespace ClassLibrary
             PopulateArray(DB);
         }
 
-
+        public void ReportByEmail(object text)
+        {
+            throw new NotImplementedException();
         }
+    }
 
     }

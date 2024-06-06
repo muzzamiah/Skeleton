@@ -1,8 +1,5 @@
 C:\Users\P2716217\Source\Repos\Skeleton\Testing1\obj\Debug\Muzza.csproj.AssemblyReference.cache
 C:\Users\P2716217\Source\Repos\Skeleton\Testing1\obj\Debug\Muzza.csproj.CoreCompileInputs.cache
-C:\Users\P2716217\Source\Repos\Skeleton\Testing1\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
-C:\Users\P2716217\Source\Repos\Skeleton\Testing1\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
-C:\Users\P2716217\Source\Repos\Skeleton\Testing1\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
 C:\Users\P2716217\Source\Repos\Skeleton\Testing1\bin\Debug\Testing1.dll
 C:\Users\P2716217\Source\Repos\Skeleton\Testing1\bin\Debug\Testing1.pdb
 C:\Users\P2716217\Source\Repos\Skeleton\Testing1\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
@@ -36,3 +33,6 @@ C:\Users\P2716217\source\repos\muzzamiah\Skeleton\Testing1\bin\Debug\Microsoft.V
 C:\Users\P2716217\source\repos\muzzamiah\Skeleton\Testing1\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
 C:\Users\P2716217\Source\Repos\Skeleton\Testing1\bin\Debug\ClassLibrary.dll
 C:\Users\P2716217\Source\Repos\Skeleton\Testing1\bin\Debug\ClassLibrary.pdb
+C:\Users\P2716217\Source\Repos\Skeleton\Testing1\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\P2716217\Source\Repos\Skeleton\Testing1\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\P2716217\Source\Repos\Skeleton\Testing1\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
