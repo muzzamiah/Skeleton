@@ -88,4 +88,41 @@ public partial class _1_List : System.Web.UI.Page
         }
 
     }
+
+    protected void btnApplyFilter_Click(object sender, EventArgs e)
+    {
+        //create an instance of the customer object
+        clsCustomerCollection AnCustomer = new clsCustomerCollection();
+        //retrieve the value of email from the presentation layer
+        AnCustomer.ReportByEmail(txtFilter.Text);
+        //set the data sourc to the list of customers in the collection
+        lstCustomerList.DataSource = AnCustomer.CustomerList;
+        //set the name of the primary key
+        lstCustomerList.DataValueField = "CustomerId";
+        //set the name of the field to display
+        lstCustomerList.DataTextField = "CustomerEmail";
+        //bind the data to the list
+        lstCustomerList.DataBind();
+    }
+
+    protected void btnClearFilter_Click(object sender, EventArgs e)
+    {
+        //create an instance of the customer object
+        clsCustomerCollection AnCustomer = new clsCustomerCollection();
+        //set an empty string
+        AnCustomer.ReportByEmail("");
+        //clear any existing filter to tidy up the interface    
+        txtFilter.Text = "";
+        //set the data source to the list of customers in the collection
+        lstCustomerList.DataSource = AnCustomer.CustomerList;
+        //set the name of the primary key
+        lstCustomerList.DataValueField = "CustomerId";
+        //set the name of the field to display
+        lstCustomerList.DataTextField = "CustomerEmail";
+        //bind the data to the list
+        lstCustomerList.DataBind();
+
+    }
+
+
 }

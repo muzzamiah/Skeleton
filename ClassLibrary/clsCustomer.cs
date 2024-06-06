@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Diagnostics.Eventing.Reader;
 using System.IO;
 
@@ -181,6 +182,29 @@ namespace ClassLibrary
                 mCustomerId = value;
             }
         }
+
+        // STATS FOR LASTNAME and DATE ADDED
+
+        public DataTable StatisticsGroupedByCustomerLastName()
+        {
+            //create an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+            //execute the stored procedure
+            DB.Execute("sproc_tblCustomer_Count_GroupByCustomerLastName");
+            //there should be either zero, one or more records
+            return DB.DataTable;
+        }
+
+        public DataTable StatisticsGroupedByDateAdded()
+        {
+            //create an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+            //execute the stored procedure
+            DB.Execute("sproc_tblCustomer_Count_GroupByDateAdded");
+            //there should be either zero, one or more records
+            return DB.DataTable;
+        }
+
     }
 }
 

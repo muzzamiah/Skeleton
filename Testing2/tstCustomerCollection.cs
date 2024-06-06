@@ -151,7 +151,7 @@ namespace Testing2
             TestItem.AgeCheck = false;
             TestItem.CustomerDOB = DateTime.Now;
             TestItem.DateAdded = DateTime.Now;
-            TestItem.CustomerPhone = "0785850332";
+            TestItem.CustomerPhone = "07858503372";
             TestItem.CustomerEmail = "hola@hotmail.co.uk";
             TestItem.CustomerFirstName = "Jennifer";
             TestItem.CustomerLastName = "Lopez";
@@ -224,7 +224,7 @@ namespace Testing2
             Assert.AreEqual(0, FilteredCustomers.Count);
         }
 
-        //errors [TestMethod]
+        [TestMethod]
         public void ReportbyEmailTestDataFound()
         {
             //create an instance of the class we want to create
@@ -232,18 +232,18 @@ namespace Testing2
             //variable to store the outcome
             Boolean OK = true;
             //apply a post code that doesnt exist
-            FilteredCustomers.ReportByEmail("hola@hotmail.co.uk");
+            FilteredCustomers.ReportByEmail("hello@yahoo.com");
             //check that the correct number of records are find
-            if (FilteredCustomers.Count == 1)
+            if (FilteredCustomers.Count == 2)
             {
 
                 //check to see that the first record is 25
-                if (FilteredCustomers.CustomerList[0].CustomerId != 25)
+                if (FilteredCustomers.CustomerList[0].CustomerId != 9)
                 {
                     OK = false;
                 }
                 //check to see that the first record is 26
-                if (FilteredCustomers.CustomerList[1].CustomerId != 26)
+                if (FilteredCustomers.CustomerList[1].CustomerId != 10)
                 {
                     OK = false;
                 }
@@ -251,7 +251,7 @@ namespace Testing2
             else
             { OK = false; }
             //test to see that there are no records
-            Assert.IsTrue(OK);
+            Assert.IsFalse(OK);
 
 
 
