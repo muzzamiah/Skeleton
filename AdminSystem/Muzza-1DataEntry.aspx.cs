@@ -28,7 +28,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
             txtStaffEmail.Text = AStaff.StaffEmail;
             txtStaffPhone.Text = AStaff.StaffPhone;
             txtDateAdded.Text = AStaff.DateAdded.ToString();
-            chkAgeCheck.Checked = AStaff.AgeCheck;
+            //chkAgeCheck.Checked = AStaff.AgeCheck;
 
         }
     }

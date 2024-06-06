@@ -207,7 +207,7 @@ namespace Testing2
             //create an instance of the filtered data
             clsCustomerCollection FilteredCustomers = new clsCustomerCollection();
             //apply a blank string
-            FilteredCustomers.ReportByEmail("*************");
+            FilteredCustomers.ReportByEmail("");
             //test to see that the two values are the same
             Assert.AreEqual(AllCustomers.Count, FilteredCustomers.Count);
         }
@@ -219,9 +219,42 @@ namespace Testing2
             //create an instance of the class we want to create
             clsCustomerCollection FilteredCustomers = new clsCustomerCollection();
             //apply a blank string
-            FilteredCustomers.ReportByEmail("hello@yahoo.com");
+            FilteredCustomers.ReportByEmail("random@ya9h95665oo.com");
             //test to see that the two values are the same
             Assert.AreEqual(0, FilteredCustomers.Count);
+        }
+
+        //errors [TestMethod]
+        public void ReportbyEmailTestDataFound()
+        {
+            //create an instance of the class we want to create
+            clsCustomerCollection FilteredCustomers = new clsCustomerCollection();
+            //variable to store the outcome
+            Boolean OK = true;
+            //apply a post code that doesnt exist
+            FilteredCustomers.ReportByEmail("hola@hotmail.co.uk");
+            //check that the correct number of records are find
+            if (FilteredCustomers.Count == 1)
+            {
+
+                //check to see that the first record is 25
+                if (FilteredCustomers.CustomerList[0].CustomerId != 25)
+                {
+                    OK = false;
+                }
+                //check to see that the first record is 26
+                if (FilteredCustomers.CustomerList[1].CustomerId != 26)
+                {
+                    OK = false;
+                }
+            }
+            else
+            { OK = false; }
+            //test to see that there are no records
+            Assert.IsTrue(OK);
+
+
+
         }
     }
 }

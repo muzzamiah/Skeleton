@@ -123,9 +123,9 @@ namespace ClassLibrary
                 AnCustomer.CustomerLastName = Convert.ToString(DB.DataTable.Rows[Index]["CustomerLastName"]);
                 AnCustomer.CustomerPhone = Convert.ToString(DB.DataTable.Rows[Index]["CustomerPhone"]);
                 AnCustomer.CustomerEmail = Convert.ToString(DB.DataTable.Rows[Index]["CustomerEmail"]);
-                // (need to fix) AnCustomer.DateAdded = Convert.ToDateTime(DB.DataTable.Rows[Index]["DateAdded"]);
-                // (need to fix) AnCustomer.CustomerDOB = Convert.ToDateTime(DB.DataTable.Rows[Index]["CustomerDOB"]);
-                // (need to fix) AnCustomer.AgeCheck = Convert.ToBoolean(DB.DataTable.Rows[Index]["AgeCheck"]);
+                AnCustomer.DateAdded = Convert.ToDateTime(DB.DataTable.Rows[Index]["DateAdded"]);
+                AnCustomer.CustomerDOB = Convert.ToDateTime(DB.DataTable.Rows[Index]["CustomerDOB"]);
+                AnCustomer.AgeCheck = Convert.ToBoolean(DB.DataTable.Rows[Index]["AgeCheck"]);
                 //add the record to the private data member
                 mCustomerList.Add(AnCustomer);
                 //point at the next record
@@ -224,9 +224,9 @@ namespace ClassLibrary
                 AnCustomer.CustomerLastName = Convert.ToString(DB.DataTable.Rows[Index]["CustomerLastName"]);
                 AnCustomer.CustomerPhone = Convert.ToString(DB.DataTable.Rows[Index]["CustomerPhone"]);
                 AnCustomer.CustomerEmail = Convert.ToString(DB.DataTable.Rows[Index]["CustomerEmail"]);
-                // (NEED TO FIX) AnCustomer.DateAdded = Convert.ToDateTime(DB.DataTable.Rows[Index]["DateAdded"]);
-                // (NEED TO FIX) AnCustomer.CustomerDOB = Convert.ToDateTime(DB.DataTable.Rows[Index]["CustomerDOB"]);
-                // (NEED TO FIX) AnCustomer.AgeCheck = Convert.ToBoolean(DB.DataTable.Rows[Index]["AgeCheck"]);
+                AnCustomer.DateAdded = Convert.ToDateTime(DB.DataTable.Rows[Index]["DateAdded"]);
+                AnCustomer.CustomerDOB = Convert.ToDateTime(DB.DataTable.Rows[Index]["CustomerDOB"]);
+                AnCustomer.AgeCheck = Convert.ToBoolean(DB.DataTable.Rows[Index]["AgeCheck"]);
                 //add the record to the private data member
                 mCustomerList.Add(AnCustomer);
                 //point at the next record
