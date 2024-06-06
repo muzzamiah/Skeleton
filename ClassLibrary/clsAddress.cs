@@ -12,5 +12,6 @@ namespace ClassLibrary
         public int OrderNo { get; set; }
         public decimal Price { get; set; }
         public string Name { get; set; }
+
     }
 }
