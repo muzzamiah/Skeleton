@@ -15,14 +15,14 @@ public partial class CustomerStatistics : System.Web.UI.Page
         clsCustomer clscustomer = new clsCustomer();
 
         //retreieve data from the database
-        DataTable dT = clscustomer.StatisticsGroupedByCustomerLastName();
+        DataTable dT = clscustomer.StatisticsGroupedByDateAdded();
 
-        //upload dT into Gridview
-        GridViewStGroupByCustomerLastName.DataSource = dT;
-        GridViewStGroupByCustomerLastName.DataBind();
+        ////upload dT into Gridview
+        //GridViewStGroupByCustomerLastName.DataSource = dT;
+        //GridViewStGroupByCustomerLastName.DataBind();
 
-        //chsnge the header of the first column
-        GridViewStGroupByCustomerLastName.HeaderRow.Cells[0].Text = " Total ";
+        ////chsnge the header of the first column
+        //GridViewStGroupByCustomerLastName.HeaderRow.Cells[0].Text = " Total ";
 
         //retrieve data from the database
         dT = clscustomer.StatisticsGroupedByDateAdded();

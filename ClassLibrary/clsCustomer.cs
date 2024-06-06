@@ -185,15 +185,6 @@ namespace ClassLibrary
 
         // STATS FOR LASTNAME and DATE ADDED
 
-        public DataTable StatisticsGroupedByCustomerLastName()
-        {
-            //create an instance of the data connection
-            clsDataConnection DB = new clsDataConnection();
-            //execute the stored procedure
-            DB.Execute("sproc_tblCustomer_Count_GroupByCustomerLastName");
-            //there should be either zero, one or more records
-            return DB.DataTable;
-        }
 
         public DataTable StatisticsGroupedByDateAdded()
         {
@@ -205,6 +196,17 @@ namespace ClassLibrary
             return DB.DataTable;
         }
 
+        //public DataTable StatisticsGroupedByCustomerLastName()
+        //{
+        //    //create an instance of the data connection
+        //    clsDataConnection DB = new clsDataConnection();
+        //    //execute the stored procedure
+        //    DB.Execute("sproc_tblCustomer_Count_GroupByCustomerLastName");
+        //    //there should be either zero, one or more records
+        //    return DB.DataTable;
+        //}
+
+      
     }
 }
 
