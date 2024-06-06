@@ -41,8 +41,15 @@ public partial class _1_DataEntry : System.Web.UI.Page
             AStaff.StaffPhone = StaffPhone;
             AStaff.DateAdded = Convert.ToDateTime(DateAdded);
 
+            clsStaffCollection StaffList = new clsStaffCollection();
+            //set the ThisCustomer Property
+            StaffList.ThisStaff = AStaff;
+            //add the new record
+            StaffList.Add();
+            Response.Redirect("Muzza-1List.aspx");
 
-            Session["AStaff"] = AStaff;
+
+            Session["AnCustomer"] = AnCustomer;
             //navigate to the view page
             Response.Redirect("StaffViewer.aspx");
         }

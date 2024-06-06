@@ -8,6 +8,8 @@ namespace ClassLibrary
 
         //private data member for the list
         List<clsStaff> mStaffList = new List<clsStaff>();
+        //private member data for thisStaff
+        clsStaff mThisStaff = new clsStaff();
 
         public List<clsStaff> StaffList
         {
@@ -39,11 +41,28 @@ namespace ClassLibrary
             }
         }
 
-        public clsStaff ThisStaff { get; set; }
+        public clsStaff ThisStaff
+        {
+            get
+            { //return the private data
+                return mThisStaff;
+
+            }
+            set
+            {
+                //set the private data
+                mThisStaff = value;
+
+            }
+        }
 
         //constructor for the class
         public clsStaffCollection()
         {
+            //private data member for the list
+            List<clsStaff> mStaffList = new List<clsStaff>();
+            //private member data for thisStaff
+            clsStaff mThisStaff = new clsStaff();
             //create the items of test data
             clsStaff TestItem = new clsStaff();
             //set its properties
@@ -51,7 +70,7 @@ namespace ClassLibrary
             TestItem.StaffDOB = DateTime.Now;
             TestItem.DateAdded = DateTime.Now;
             TestItem.StaffPhone = "07479875589";
-            TestItem.StaffRole = "Manager";
+            TestItem.StaffRole = "hello@yahoo.com";
             TestItem.StaffFirstName = "John";
             TestItem.StaffLastName = "Appleseed";
             //add the test item to the test list
@@ -63,7 +82,7 @@ namespace ClassLibrary
             TestItem.StaffDOB = DateTime.Now;
             TestItem.DateAdded = DateTime.Now;
             TestItem.StaffPhone = "07479875589";
-            TestItem.StaffRole = "hello@yahoo.com";
+            TestItem.StaffRole = "Manager";
             TestItem.StaffFirstName = "John";
             TestItem.StaffLastName = "Appleseed";
             //add the item to the test list
@@ -97,12 +116,32 @@ namespace ClassLibrary
                 mStaffList.Add(AStaff);
                 //point at the next record
                 Index++;
+
             }
+
+
+
 
         }
 
+        public int Add()
+        {
+            //adds a record to the database based on the values of mThisStaff
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedure
+            DB.AddParameter("@StaffFirstName", mThisStaff.StaffFirstName);
+            DB.AddParameter("@StaffLastName", mThisStaff.StaffLastName);
+            DB.AddParameter("@StaffPhone", mThisStaff.StaffPhone);
+            DB.AddParameter("@StaffRole", mThisStaff.StaffRole);
+            DB.AddParameter("@DateAdded", mThisStaff.DateAdded);
+            DB.AddParameter("@StaffDOB", mThisStaff.StaffDOB);
+            DB.AddParameter("@AgeCheck", mThisStaff.AgeCheck);
 
 
 
+            //execute the query returning the primary key value
+            return DB.Execute("sproc_tblStaff_Insert");
+        }
     }
 }
