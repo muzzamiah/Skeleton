@@ -449,5 +449,148 @@ namespace Testing4
         //test to see that the result is correct
         Assert.AreNotEqual(Error, "");
     }
+
+    public void QuantityMinLessOne()
+    {
+        //create an instance of the class we want to create
+        clsOrder anAddress = new clsOrder();
+        //string c=variable to store any error message
+        String Error = "";
+        //create some test data to pass to the method
+        string Quantity = ""; //this should trigger an error
+                             //invoke the method
+        Error = anOrder.valid(ProductName, Quantity, OrderNo, Price, OrderDate, OrderAddress, DateAdded);
+        //test to see that the result is correct
+        Assert.AreNotEqual(Error, "");
+    }
+
+    [TestMethod]
+    public void QuantityNoMin()
+    {
+        //create an instance of the class we want to create
+        clsOrder anAddress = new clsOrder();
+        //string c=variable to store any error message
+        String Error = "";
+        //create some test data to pass to the method
+        string ProductName = "A";//this should be okay
+                                 //invoke the method
+        Error = anOrder.valid(ProductName, Quantity, OrderNo, Price, OrderDate, OrderAddress, DateAdded);
+        //test to see that the result is correct
+        Assert.AreNotEqual(Error, "");
+
+    }
+
+    [TestMethod]
+    public void QuantityMin()
+    {
+        //create an instance of the class we want to create
+        clsOrder anAddress = new clsOrder();
+        //string c=variable to store any error message
+        String Error = "";
+        //create some test data to pass to the method
+        string Quantity = "Aa";  //this should  be okay
+                                    //invoke the method
+        Error = anOrder.valid(ProductName, Quantity, OrderNo, Price, OrderDate, OrderAddress, DateAdded);
+        //test to see that the result is correct
+        Assert.AreNotEqual(Error, "");
+
+    }
+
+    [TestMethod]
+    public void QuantityMinPlusOne()
+    {
+        //create an instance of the class we want to create
+        clsOrder anAddress = new clsOrder();
+        //string c=variable to store any error message
+        String Error = "";
+        //create some test data to pass to the method
+        string ProductName = "aa"; //This should be okay
+                                   //invoke the method
+        Error = anOrder.valid(ProductName, Quantity, OrderNo, Price, OrderDate, OrderAddress, DateAdded);
+        //test to see that the result is correct
+        Assert.AreNotEqual(Error, "");
+
+    }
+
+    [TestMethod]
+    public void QuantityMaxLessOne()
+    {
+        //create an instance of the class we want to create
+        clsOrder anAddress = new clsOrder();
+        //string c=variable to store any error message
+        String Error = "";
+        //create some test data to pass to the method
+        string Quantity = "aaaaa"; // This should be okay
+                                      //invoke the method
+        Error = anOrder.valid(ProductName, Quantity, OrderNo, Price, OrderDate, OrderAddress, DateAdded);
+        //test to see that the result is correct
+        Assert.AreNotEqual(Error, "");
+
+    }
+
+    [TestMethod]
+    public void QuantityMax()
+    {
+        //create an instance of the class we want to create
+        clsOrder anAddress = new clsOrder();
+        //string c=variable to store any error message
+        String Error = "";
+        //create some test data to pass to the method
+        string Quantity = "aaaaa"; // This should be okay
+                                      //invoke the method
+        Error = anOrder.valid(ProductName, Quantity, OrderNo, Price, OrderDate, OrderAddress, DateAdded);
+        //test to see that the result is correct
+        Assert.AreNotEqual(Error, "");
+
+    }
+
+    [TestMethod]
+    public void QuantityMid()
+    {
+        //create an instance of the class we want to create
+        clsOrder anAddress = new clsOrder();
+        //string c=variable to store any error message
+        String Error = "";
+        //create some test data to pass to the method
+        string Quantity = "aaa"; //This should be okay
+                                    //invoke the method
+        Error = anOrder.valid(ProductName, Quantity, OrderNo, Price, OrderDate, OrderAddress, DateAdded);
+        //test to see that the result is correct
+        Assert.AreNotEqual(Error, "");
+
+    }
+
+    [TestMethod]
+    public void QuantityPlusOne()
+    {
+        //create an instance of the class we want to create
+        clsOrder anAddress = new clsOrder();
+        //string c=variable to store any error message
+        String Error = "";
+        //create some test data to pass to the method
+        string Quantity = "aaaaaaa"; //This should be okay
+                                        //invoke the method
+        Error = anOrder.valid(ProductName, Quantity, OrderNo, Price, OrderDate, OrderAddress, DateAdded);
+        //test to see that the result is correct
+        Assert.AreNotEqual(Error, "");
+
+    }
+
+    [TestMethod]
+    public void QuantityExtremeMax()
+    {
+        //create an instance of the class we want to create
+        clsOrder anAddress = new clsOrder();
+        //string c=variable to store any error message
+        String Error = "";
+        //create some test data to pass to the method
+        string Quantity = "";
+        Quantity = Quantity.PadRight(500, 'a'); ; //This should trigger an error
+                                                        //invoke the method
+        Error = anOrder.valid(ProductName, Quantity, OrderNo, Price, OrderDate, OrderAddress, DateAdded);
+        //test to see that the result is correct
+        Assert.AreNotEqual(Error, "");
+
+    }
 }
 }
