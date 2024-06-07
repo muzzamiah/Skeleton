@@ -9,9 +9,25 @@ using ClassLibrary;
 
 public partial class _1_DataEntry : System.Web.UI.Page
 {
+
+    //variable to store the primary key with page level cope
+    Int32 CustomerId;
+
     protected void Page_Load(object sender, EventArgs e)
     {
+        //get the number of the customer to be processed
+        CustomerId = Convert.ToInt32(Session["CustomerId"]);
+        if (IsPostBack == false)
+        {
+            //if this is not a new record
+            if (CustomerId != -1)
+            {
+                //dipslay the current data for the record
+                DisplayCustomer();
 
+            }
+           
+        }
     }
 
     protected void btnOK_Click(object sender, EventArgs e)
@@ -33,17 +49,39 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //store the address in the session object
         if (Error == "")
         {
+            AnCustomer.CustomerId = CustomerId;
             AnCustomer.CustomerFirstName = CustomerFirstName;
             AnCustomer.CustomerLastName = CustomerLastName;
             AnCustomer.CustomerDOB = Convert.ToDateTime(CustomerDOB);
             AnCustomer.CustomerEmail = CustomerEmail;
             AnCustomer.CustomerPhone = CustomerPhone;
             AnCustomer.DateAdded = Convert.ToDateTime(DateAdded);
+            AnCustomer.AgeCheck = chkAgeCheck.Checked;
+            clsCustomerCollection CustomerList = new clsCustomerCollection();
+            
+            //if this is a new record i.e CustomerId = -1 then add the data
 
+            if (CustomerId == -1)
+            {
+                //set the ThisCustomer Property
+                CustomerList.ThisCustomer = AnCustomer;
+                //add the new record
+                CustomerList.Add();
+            }
+            //otherwise it must be an update
+            else
+            {
+                //find the record to update
+                CustomerList.ThisCustomer.Find(CustomerId);
+                //set the ThisCustomer property
+                CustomerList.ThisCustomer = AnCustomer;
+                //update the record
+                CustomerList.Update();
+            }
+            //redirect back to the list page
+            Response.Redirect("CustomerDataEntry.aspx");
 
-            Session["AnCustomer"] = AnCustomer;
-            //navigate to the view page
-            Response.Redirect("Sammy-2Viewer.aspx");
+            
         }
 
         else
@@ -79,7 +117,25 @@ public partial class _1_DataEntry : System.Web.UI.Page
             chkAgeCheck.Checked = AnCustomer.AgeCheck;
 
         }
-
-
     }
+
+        void DisplayCustomer()
+        {
+            //create an instance of the customer book
+            clsCustomerCollection CustomerBook = new clsCustomerCollection();
+            //find the record to update
+            CustomerBook.ThisCustomer.Find(CustomerId);
+            //display the data for the record
+            txtCustomerId.Text = CustomerBook.ThisCustomer.CustomerId.ToString();
+            txtCustomerFirstName.Text = CustomerBook.ThisCustomer.CustomerFirstName;
+            txtCustomerLastName.Text = CustomerBook.ThisCustomer.CustomerLastName;
+            txtCustomerDOB.Text = CustomerBook.ThisCustomer.CustomerDOB.ToString();
+            txtCustomerEmail.Text = CustomerBook.ThisCustomer.CustomerEmail;
+            txtCustomerPhone.Text = CustomerBook.ThisCustomer.CustomerPhone;
+            txtDateAdded.Text = CustomerBook.ThisCustomer.DateAdded.ToString();
+            chkAgeCheck.Checked = CustomerBook.ThisCustomer.AgeCheck;
+
+        }
+
+    
 }
